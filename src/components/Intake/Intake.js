@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/Textfield';
 
 import './Intake.css';
 
@@ -31,8 +32,8 @@ class Intake extends Component {
                         label="Phone Number"
                         variant="outlined"
                         margin="normal"
-                        value={this.state.phone_number}
-                        onChange={this.handleChangePhone}
+                        // value={this.state.phone_number}
+                        // onChange={this.handleChangePhone}
                     />
                     </FormControl>
                 </div>
@@ -40,5 +41,8 @@ class Intake extends Component {
         )
     }
 }
+const mapStateToProps = reduxStore => {
+    return { reduxStore: reduxStore };
+  }
 
-export default connect(Intake);
+export default connect(mapStateToProps)(Intake);
