@@ -11,6 +11,13 @@ import UserHeader from '../UserHeader/UserHeader';
 
 
 class UserPage extends Component {
+
+
+  newBuild = () => {
+    this.props.history.push('/intake');
+  }
+  
+
   render() {
     return (
       <div>
