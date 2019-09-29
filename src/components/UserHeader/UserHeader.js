@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './UserHeader.css';
 
 const userHeader = (props) => (
     <div className="user_header">

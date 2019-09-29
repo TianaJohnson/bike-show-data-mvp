@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import Button from '@material-ui/core/Button';
 import UserHeader from '../UserHeader/UserHeader';
+import './UserPage.css';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
