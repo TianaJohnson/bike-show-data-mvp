@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
+import Button from '@material-ui/core/Button';
 // import TestIntake from './testIntake';
 
 import './Intake.css';
@@ -25,23 +26,38 @@ class Intake extends Component {
         return (
             <div className="intake-main">
             {/* <TestIntake/> */}
-            <Card className="intake-card">
-                
-                
+            <Card className="intake-card">    
                 
                     <FormControl>
-                   
                     <TextField
                         style={{ margin: 10 }}
-                        className="other"
-                        id="outline-other"
-                        label="other"
+                        className="brand-input"
+                        id="brand"
+                        label="Brand"
                         variant="outlined"
                         margin="normal"
                         // value={this.state.phone_number}
                         // onChange={this.handleChangePhone}
                     />
                     </FormControl>
+                    <FormControl>
+                    <TextField
+                        style={{ margin: 10 }}
+                        className="builder-input"
+                        id="builder"
+                        label="Builder"
+                        variant="outlined"
+                        margin="normal"
+                        // value={this.state.phone_number}
+                        // onChange={this.handleChangePhone}
+                    />
+                    </FormControl>
+                    <Button variant="contained"
+                            color="secondary"
+                            size="large"
+                            style={{ margin: 10 }}>
+                        Build
+                    </Button>
                     </Card>
                 </div>
             
