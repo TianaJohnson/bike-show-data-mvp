@@ -86,3 +86,27 @@ CREATE TABLE "wheel_size" (
     "20" BOOLEAN,
     "other" VARCHAR (20)
 );
+
+-- not sure exactly how to wright this one
+CREATE TABLE "tire_width" (
+
+);
+
+CREATE TABLE "fork_material" (
+    "id" SERIAL PRIMARY KEY,
+    "suspention" BOOLEAN,
+    "carbon" BOOLEAN,
+    "aluminum" BOOLEAN,
+    "stainless" BOOLEAN,
+    "steel" BOOLEAN,
+    "other" VARCHAR (100)
+);
+
+CREATE TABLE "steel_fork_build" (
+    "id" SERIAL PRIMARY KEY,
+    "unicrown" BOOLEAN,
+    "segmented" BOOLEAN,
+    "lugged" BOOLEAN,
+    "bilam" BOOLEAN,
+    "other" VARCHAR (100)
+);
