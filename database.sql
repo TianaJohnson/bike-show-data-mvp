@@ -87,11 +87,6 @@ CREATE TABLE "wheel_size" (
     "other" VARCHAR (20)
 );
 
--- not sure exactly how to wright this one
-CREATE TABLE "tire_width" (
-
-);
-
 CREATE TABLE "fork_material" (
     "id" SERIAL PRIMARY KEY,
     "suspention" BOOLEAN,
@@ -109,4 +104,35 @@ CREATE TABLE "steel_fork_build" (
     "lugged" BOOLEAN,
     "bilam" BOOLEAN,
     "other" VARCHAR (100)
+);
+
+
+
+-- front/rear?
+CREATE TABLE "axle_type" (
+    "id" SERIAL PRIMARY KEY,
+    "qr" BOOLEAN,
+    "ta" BOOLEAN,
+    "track" BOOLEAN,
+    "other" VARCHAR (100),
+);
+
+CREATE TABLE "brake_type" (
+    "id" SERIAL PRIMARY KEY,
+    "flat_mount_disc" BOOLEAN,
+    "post_mount" BOOLEAN,
+    "is" BOOLEAN,
+    "canti" BOOLEAN,
+    "center_hole" BOOLEAN,
+    "coaster" BOOLEAN,
+    "none" BOOLEAN,
+    "other" VARCHAR
+);
+
+CREATE TABLE "component_brand" ();
+    "id" SERIAL PRIMARY KEY,
+
+-- not sure exactly how to wright this one
+CREATE TABLE "tire_width" (
+
 );
