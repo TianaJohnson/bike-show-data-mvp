@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
 import Button from '@material-ui/core/Button';
-// import TestIntake from './testIntake';
+import FrameType from './FrameType';
 
 import './Intake.css';
 
@@ -20,6 +20,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class Intake extends Component {
+
+    buildBike = () => {
+        this.props.history.push('/frame');
+      }
 
 
     render() {
@@ -55,7 +59,8 @@ class Intake extends Component {
                     <Button variant="contained"
                             color="secondary"
                             size="large"
-                            style={{ margin: 10 }}>
+                            style={{ margin: 10 }}
+                            onClick={this.buildBike}>
                         Build
                     </Button>
                     </Card>

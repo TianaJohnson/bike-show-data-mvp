@@ -15,6 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import UserPage from '../UserPage/UserPage';
 import Intake from '../Intake/Intake';
+import Frame from '../FrameType/FrameType';
 
 import './App.css';
 
@@ -54,6 +55,11 @@ class App extends Component {
               exact
               path="/intake"
               component={Intake}
+            />
+            <ProtectedRoute
+              exact
+              path="/frame"
+              component={Frame}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
