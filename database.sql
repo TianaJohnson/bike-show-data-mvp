@@ -34,5 +34,41 @@ CREATE TABLE "primary_frame_material" (
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
     "other" VARCHAR (50)
-
 );
+
+CREATE TABLE "secondary_frame_material" (
+    "id" SERIAL PRIMARY KEY,
+    "steel" BOOLEAN,
+    "stainless" BOOLEAN,
+    "carbon" BOOLEAN,
+    "aluminum" BOOLEAN,
+    "titanium" BOOLEAN,
+    "magnesium" BOOLEAN,
+    "wood" BOOLEAN,
+    "bamboo" BOOLEAN,
+    "other" VARCHAR (50)
+)
+
+CREATE TABLE "primary_frame_joining" (
+    "id" SERIAL PRIMARY KEY,
+    "welding" BOOLEAN,
+    "brass_fillet" BOOLEAN,
+    "lugged" BOOLEAN,
+    "layed_up" BOOLEAN,
+    "bonded" BOOLEAN,
+    "silver_fillet" BOOLEAN,
+    "mechanical" BOOLEAN,
+    "other" VARCHAR (100)
+);
+
+CREATE TABLE "secondary_frame_joining" (
+    "id" SERIAL PRIMARY KEY,
+    "welding" BOOLEAN,
+    "brass_fillet" BOOLEAN,
+    "lugged" BOOLEAN,
+    "layed_up" BOOLEAN,
+    "bonded" BOOLEAN,
+    "silver_fillet" BOOLEAN,
+    "mechanical" BOOLEAN,
+    "other" VARCHAR (100)
+)
