@@ -33,6 +33,7 @@ CREATE TABLE "primary_frame_material" (
     "magnesium" BOOLEAN,
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
+    "secondry_present" BOOLEAN,
     "other" VARCHAR (50)
 );
 
@@ -58,8 +59,11 @@ CREATE TABLE "primary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
+    "secondry_present" BOOLEAN, 
     "other" VARCHAR (100)
 );
+
+
 
 CREATE TABLE "secondary_frame_joining" (
     "id" SERIAL PRIMARY KEY,
@@ -72,3 +76,13 @@ CREATE TABLE "secondary_frame_joining" (
     "mechanical" BOOLEAN,
     "other" VARCHAR (100)
 )
+CREATE TABLE "wheel_size" (
+    "id" SERIAL PRIMARY KEY,
+    "36" BOOLEAN,
+    "700c/29" BOOLEAN,
+    "650b/27.5" BOOLEAN,
+    "26" BOOLEAN,
+    "24" BOOLEAN,
+    "20" BOOLEAN,
+    "other" VARCHAR (20)
+);
