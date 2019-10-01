@@ -129,8 +129,26 @@ CREATE TABLE "brake_type" (
     "other" VARCHAR
 );
 
-CREATE TABLE "component_brand" ();
+-- This can possibly be used for all compenets to refrence to...
+-- or this 
+CREATE TABLE "component_brand" (
     "id" SERIAL PRIMARY KEY,
+    "paul" BOOLEAN,
+    "sram" BOOLEAN,
+    "shimano" BOOLEAN,
+    "campy" BOOLEAN,
+    "hayes" BOOLEAN,
+    "hope" BOOLEAN,
+    "trp" BOOLEAN,
+    "promax" BOOLEAN,
+    "cane_creek" BOOLEAN,
+    "brooks" BOOLEAN,
+    "ritchey" BOOLEAN,
+    "thompson" BOOLEAN,
+    "raceface" BOOLEAN,
+    "velo_orange" BOOLEAN,
+    "other" VARCHAR (400)
+);
 
 -- not sure exactly how to wright this one
 CREATE TABLE "tire_width" (
