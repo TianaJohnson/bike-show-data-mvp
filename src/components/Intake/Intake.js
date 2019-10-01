@@ -40,8 +40,6 @@ class Intake extends Component {
                         label="Brand"
                         variant="outlined"
                         margin="normal"
-                        // value={this.state.phone_number}
-                        // onChange={this.handleChangePhone}
                     />
                     </FormControl>
                     <FormControl>
@@ -52,8 +50,6 @@ class Intake extends Component {
                         label="Builder"
                         variant="outlined"
                         margin="normal"
-                        // value={this.state.phone_number}
-                        // onChange={this.handleChangePhone}
                     />
                     </FormControl>
                     <Button variant="contained"

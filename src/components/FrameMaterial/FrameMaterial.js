@@ -1,51 +1,68 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import './FrameType.css';
+import './FrameMaterial.css';
 
-class FrameType extends Component {
-
-    frameMaterial = () => {
-        this.props.history.push('/frame-material');
-      }
+class FrameMaterial extends Component {
 
     render() {
         return (
             <div>
-                <Button 
+                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Road
+                    Steel
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Cyclocross
+                    Stainless Steel
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Moutain
+                    Titanium
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Touring
+                    Magnesium
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Track
+                    Wood
+                </Button>
+                <Button 
+                variant="contained"
+                color="secondary"
+                size="large"
+                style={{ margin: 10 }}>
+                    Bamboo
+                </Button>
+                <Button 
+                variant="contained"
+                color="secondary"
+                size="large"
+                style={{ margin: 10 }}>
+                    Carbon
+                </Button>
+                <Button 
+                variant="contained"
+                color="secondary"
+                size="large"
+                style={{ margin: 10 }}>
+                    Aluminum
                 </Button>
                 <Button 
                 variant="contained"
@@ -58,11 +75,9 @@ class FrameType extends Component {
                 variant="contained"
                 color="primary"
                 size="large"
-                onClick={this.frameMaterial}
                 style={{ margin: 10 }}>
-                    Frame Material
+                    Next
                 </Button>
-                
             </div>
         )
     }
@@ -71,4 +86,4 @@ const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }
 
-export default connect(mapStateToProps)(FrameType);
+export default connect(mapStateToProps)(FrameMaterial);
