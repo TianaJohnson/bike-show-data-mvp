@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class Template extends Component {
+class WheelInfo extends Component {
 
     render() {
         return (
@@ -14,4 +14,4 @@ const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }
 
-export default connect(mapStateToProps)(Template);
+export default connect(mapStateToProps)(WheelInfo);
