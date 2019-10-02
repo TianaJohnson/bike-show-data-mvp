@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './WheelInfo.css';
 
-
-class WheelInfo extends Component {
+class BuilderTable extends Component {
 
     render() {
         return (
@@ -15,4 +13,4 @@ const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }
 
-export default connect(mapStateToProps)(WheelInfo);
+export default connect(mapStateToProps)(BuilderTable);
