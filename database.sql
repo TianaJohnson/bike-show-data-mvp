@@ -154,3 +154,6 @@ CREATE TABLE "component_brand" (
 CREATE TABLE "tire_width" (
 
 );
+
+-- I am thinking it makes the most sense to have
+-- a main table that refrences all other tables
