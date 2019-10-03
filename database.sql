@@ -12,11 +12,12 @@ CREATE TABLE "user" (
 CREATE TABLE "builder" (
     "id" SERIAL PRIMARY KEY,
     "builder_name" VARCHAR (100),
-    "brand" VARCHAR (100)
+    "brand" VARCHAR (100),
+    "show" VARCHAR (100)
 );
 
 CREATE TABLE "bike_type" (
-    "id" SERIAL PRIMARY KRY,
+    "id" SERIAL PRIMARY KEY,
     "road" BOOLEAN,
     "cyclocross" BOOLEAN,
     "gravel" BOOLEAN,
@@ -26,7 +27,7 @@ CREATE TABLE "bike_type" (
     "tandem" BOOLEAN,
     "experimental" BOOLEAN,
     "touring" BOOLEAN,
-    "other" VARCHAR (75)
+    "other" VARCHAR (100),
 );
 
 CREATE TABLE "primary_frame_material" (
@@ -112,15 +113,13 @@ CREATE TABLE "steel_fork_build" (
     "other" VARCHAR (100)
 );
 
-
-
 -- front/rear?
 CREATE TABLE "axle_type" (
     "id" SERIAL PRIMARY KEY,
     "qr" BOOLEAN,
     "ta" BOOLEAN,
     "track" BOOLEAN,
-    "other" VARCHAR (100),
+    "other" VARCHAR (100)
 );
 
 CREATE TABLE "brake_type" (
@@ -157,13 +156,13 @@ CREATE TABLE "component_brand" (
 );
 
 -- not sure exactly how to wright this one
-CREATE TABLE "tire_width" (
+-- CREATE TABLE "tire_width" (
 
-);
+-- );
 
 CREATE TABLE "main_info" (
     "id" SERIAL PRIMARY KEY,
-    "show" VARCHAR (100),
+    "show_id" INT REFERENCES "builder",
      
 )
 
