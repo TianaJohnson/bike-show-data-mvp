@@ -9,6 +9,12 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+CREATE TABLE "builder" (
+    "id" SERIAL PRIMARY KEY,
+    "builder_name" VARCHAR (100),
+    "brand" VARCHAR (100)
+);
+
 CREATE TABLE "bike_type" (
     "id" SERIAL PRIMARY KRY,
     "road" BOOLEAN,
@@ -154,6 +160,12 @@ CREATE TABLE "component_brand" (
 CREATE TABLE "tire_width" (
 
 );
+
+CREATE TABLE "main_info" (
+    "id" SERIAL PRIMARY KEY,
+    "show" VARCHAR (100),
+     
+)
 
 -- I am thinking it makes the most sense to have
 -- a main table that refrences all other tables
