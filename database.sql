@@ -12,8 +12,7 @@ CREATE TABLE "user" (
 CREATE TABLE "builder" (
     "id" SERIAL PRIMARY KEY,
     "builder_name" VARCHAR (100),
-    "brand" VARCHAR (100),
-    "show" VARCHAR (100)
+    "brand" VARCHAR (100)
 );
 
 CREATE TABLE "bike_type" (
@@ -162,7 +161,7 @@ CREATE TABLE "component_brand" (
 
 CREATE TABLE "main_info" (
     "id" SERIAL PRIMARY KEY,
-    "show_id" INT REFERENCES "builder"("id"),
+    "builder_info" INT REFERENCES "builder"("id"),
      
 )
 
