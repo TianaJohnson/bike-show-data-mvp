@@ -35,7 +35,8 @@ class UserPage extends Component {
           New
                     </Button>
         <br />
-        <LogOutButton className="log-in"/>
+        <LogOutButton 
+        className="log-in"/>
       </div>
     );
   }
