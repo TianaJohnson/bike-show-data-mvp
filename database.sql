@@ -162,7 +162,7 @@ CREATE TABLE "component_brand" (
 
 CREATE TABLE "main_info" (
     "id" SERIAL PRIMARY KEY,
-    "show_id" INT REFERENCES "builder",
+    "show_id" INT REFERENCES "builder"("id"),
      
 )
 
