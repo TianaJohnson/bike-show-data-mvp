@@ -8,13 +8,16 @@
 
 .nav {
   overflow: hidden;
-  background-color: #00acb0;
+  background-image: 
+    linear-gradient(
+      45deg,
+     blue 4%, purple 90%);
 }
 
 .nav-link {
   float: left;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-color:purple;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
