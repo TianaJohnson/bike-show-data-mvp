@@ -173,9 +173,10 @@ CREATE TABLE "tire_size" (
     "location" INT REFERENCES "placement"("id")
 );
 
+-- file table to refrence all
 CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
     "builder_info" INT REFERENCES "builder"("id"),
-     
+    "user_id" INT REFERENCES "user"("id")  
 );
 
