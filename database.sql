@@ -86,30 +86,33 @@ CREATE TABLE "secondary_frame_joining" (
     "other" VARCHAR (100)
 )
 
-
-
-
-
-CREATE TABLE "wheel_size" (
-    "id" SERIAL PRIMARY KEY,
-    "36" BOOLEAN,
-    "700c/29" BOOLEAN,
-    "650b/27.5" BOOLEAN,
-    "26" BOOLEAN,
-    "24" BOOLEAN,
-    "20" BOOLEAN,
-    "other" VARCHAR (20)
+-- Wheel size
+CREATE TABLE "wheel_size" (
+    "id" SERIAL PRIMARY KEY,
+    "36" BOOLEAN,
+    "700c/29" BOOLEAN,
+    "650b/27.5" BOOLEAN,
+    "26" BOOLEAN,
+    "24" BOOLEAN,
+    "20" BOOLEAN,
+    "other" VARCHAR (20)
 );
 
-CREATE TABLE "fork_material" (
-    "id" SERIAL PRIMARY KEY,
-    "suspention" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "stainless" BOOLEAN,
-    "steel" BOOLEAN,
-    "other" VARCHAR (100)
+-- Main fork material
+CREATE TABLE "fork_material" (
+    "id" SERIAL PRIMARY KEY,
+    "suspention" BOOLEAN,
+    "carbon" BOOLEAN,
+    "aluminum" BOOLEAN,
+    "stainless" BOOLEAN,
+    "steel" BOOLEAN,
+    "other" VARCHAR (100)
 );
+
+
+
+
+
 
 CREATE TABLE "steel_fork_build" (
     "id" SERIAL PRIMARY KEY,
