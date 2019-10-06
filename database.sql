@@ -106,10 +106,11 @@ CREATE TABLE "fork_material" (
     "aluminum" BOOLEAN,
     "stainless" BOOLEAN,
     "steel" BOOLEAN,
+	"steel_build" INT REFERENCES "steel_fork_build"("id"),
     "other" VARCHAR (100)
 );
 
--- steel fork build style
+-- steel fork build style, refrenced by fork material table
 CREATE TABLE "steel_fork_build" (
     "id" SERIAL PRIMARY KEY,
     "unicrown" BOOLEAN,
@@ -119,9 +120,6 @@ CREATE TABLE "steel_fork_build" (
     "other" VARCHAR (100)
 );
 
-
-
-
 -- Bike location placement refrence table
 CREATE TABLE "placement"(
     "id" SERIAL PRIMARY KEY,
@@ -130,58 +128,54 @@ CREATE TABLE "placement"(
     "both" BOOLEAN,
 )
 
--- front/rear?
-CREATE TABLE "axle_type" (
-    "id" SERIAL PRIMARY KEY,
-    "qr" BOOLEAN,
-    "ta" BOOLEAN,
-    "track" BOOLEAN,
-    "other" VARCHAR (100)
+-- axle type, refrences location
+CREATE TABLE "axle_type" (
+    "id" SERIAL PRIMARY KEY,
+    "qr" BOOLEAN,
+    "ta" BOOLEAN,
+    "track" BOOLEAN,
+    "other" VARCHAR (100),
+    "location" INT REFERENCES "placement"("id")
 );
 
-CREATE TABLE "brake_type" (
-    "id" SERIAL PRIMARY KEY,
-    "flat_mount_disc" BOOLEAN,
-    "post_mount" BOOLEAN,
-    "is" BOOLEAN,
-    "canti" BOOLEAN,
-    "center_hole" BOOLEAN,
-    "coaster" BOOLEAN,
-    "none" BOOLEAN,
-    "other" VARCHAR
+--brand type, to be refrenced
+CREATE TABLE "component_brand" (
+    "id" SERIAL PRIMARY KEY,
+    "paul" BOOLEAN,
+    "sram" BOOLEAN,
+    "shimano" BOOLEAN,
+    "campy" BOOLEAN,
+    "hayes" BOOLEAN,
+    "hope" BOOLEAN,
+    "trp" BOOLEAN,
+    "promax" BOOLEAN,
+    "cane_creek" BOOLEAN,
+    "brooks" BOOLEAN,
+    "ritchey" BOOLEAN,
+    "thompson" BOOLEAN,
+    "raceface" BOOLEAN,
+    "velo_orange" BOOLEAN,
+	"sr_suntour" BOOLEAN,
+	"dt_swiss" BOOLEAN,
+	"white_industries" BOOLEAN,
+	"velocity" BOOLEAN,
+	"phill_wood" BOOLEAN,
+	"i9" BOOLEAN,
+    "other" VARCHAR (400)
 );
 
--- This can possibly be used for all compenets to refrence to...
--- or this 
-CREATE TABLE "component_brand" (
+-- tire size refrences location
+CREATE TABLE "tire_size" (
     "id" SERIAL PRIMARY KEY,
-    "paul" BOOLEAN,
-    "sram" BOOLEAN,
-    "shimano" BOOLEAN,
-    "campy" BOOLEAN,
-    "hayes" BOOLEAN,
-    "hope" BOOLEAN,
-    "trp" BOOLEAN,
-    "promax" BOOLEAN,
-    "cane_creek" BOOLEAN,
-    "brooks" BOOLEAN,
-    "ritchey" BOOLEAN,
-    "thompson" BOOLEAN,
-    "raceface" BOOLEAN,
-    "velo_orange" BOOLEAN,
-    "other" VARCHAR (400)
+    "diam" INTEGER, 
+    "width" INTEGER,
+    "other" VARCHAR (25),
+    "location" INT REFERENCES "placement"("id")
 );
-
--- not sure exactly how to wright this one
--- CREATE TABLE "tire_width" (
-
--- );
 
 CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
     "builder_info" INT REFERENCES "builder"("id"),
      
-)
+);
 
--- I am thinking it makes the most sense to have
--- a main table that refrences all other tables
