@@ -58,34 +58,38 @@ CREATE TABLE "secondary_frame_material" (
     "other" VARCHAR (50)
 );
 
-
-
-CREATE TABLE "primary_frame_joining" (
-    "id" SERIAL PRIMARY KEY,
-    "welding" BOOLEAN,
-    "brass_fillet" BOOLEAN,
-    "lugged" BOOLEAN,
-    "layed_up" BOOLEAN,
-    "bonded" BOOLEAN,
-    "silver_fillet" BOOLEAN,
-    "mechanical" BOOLEAN,
-    "secondry_present" BOOLEAN, 
-    "other" VARCHAR (100)
+-- Primary means of frame joining
+CREATE TABLE "primary_frame_joining" (
+    "id" SERIAL PRIMARY KEY,
+    "welding" BOOLEAN,
+    "brass_fillet" BOOLEAN,
+    "lugged" BOOLEAN,
+    "layed_up" BOOLEAN,
+    "bonded" BOOLEAN,
+    "silver_fillet" BOOLEAN,
+    "mechanical" BOOLEAN,
+    "secondry_present" BOOLEAN,
+	"secondary" INT REFERENCES "secondary_frame_joining"("id"),
+    "other" VARCHAR (100)
 );
 
-
-
-CREATE TABLE "secondary_frame_joining" (
-    "id" SERIAL PRIMARY KEY,
-    "welding" BOOLEAN,
-    "brass_fillet" BOOLEAN,
-    "lugged" BOOLEAN,
-    "layed_up" BOOLEAN,
-    "bonded" BOOLEAN,
-    "silver_fillet" BOOLEAN,
-    "mechanical" BOOLEAN,
-    "other" VARCHAR (100)
+-- Secondary frame joining material, if present. Refrenced by Primary frame joining table
+CREATE TABLE "secondary_frame_joining" (
+    "id" SERIAL PRIMARY KEY,
+    "welding" BOOLEAN,
+    "brass_fillet" BOOLEAN,
+    "lugged" BOOLEAN,
+    "layed_up" BOOLEAN,
+    "bonded" BOOLEAN,
+    "silver_fillet" BOOLEAN,
+    "mechanical" BOOLEAN,
+    "other" VARCHAR (100)
 )
+
+
+
+
+
 CREATE TABLE "wheel_size" (
     "id" SERIAL PRIMARY KEY,
     "36" BOOLEAN,
