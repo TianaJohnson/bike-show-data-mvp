@@ -1,61 +1,64 @@
 
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+CREATE TABLE "user" (
+    "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "builder" (
-    "id" SERIAL PRIMARY KEY,
-    "builder_name" VARCHAR (100),
-    "brand" VARCHAR (100)
+-- builder identification table
+CREATE TABLE "builder" (
+    "id" SERIAL PRIMARY KEY,
+    "builder_name" VARCHAR (100),
+    "brand" VARCHAR (100)
 );
 
-CREATE TABLE "bike_type" (
-    "id" SERIAL PRIMARY KEY,
-    "road" BOOLEAN,
-    "cyclocross" BOOLEAN,
-    "gravel" BOOLEAN,
-    "moutain" BOOLEAN,
-    "city" BOOLEAN,
-    "track" BOOLEAN,
-    "tandem" BOOLEAN,
-    "experimental" BOOLEAN,
-    "touring" BOOLEAN,
-    "other" VARCHAR (100),
+-- Bike type per builder
+CREATE TABLE "bike_type" (
+    "id" SERIAL PRIMARY KEY,
+    "road" BOOLEAN,
+    "cyclocross" BOOLEAN,
+    "gravel" BOOLEAN,
+    "moutain" BOOLEAN,
+    "city" BOOLEAN,
+    "track" BOOLEAN,
+    "tandem" BOOLEAN,
+    "experimental" BOOLEAN,
+    "touring" BOOLEAN,
+    "other" VARCHAR (100)
 );
 
-CREATE TABLE "primary_frame_material" (
-    "id" SERIAL PRIMARY KEY,
-    "steel" BOOLEAN,
-    "stainless" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "titanium" BOOLEAN,
-    "magnesium" BOOLEAN,
-    "wood" BOOLEAN,
-    "bamboo" BOOLEAN,
-    "secondry_present" BOOLEAN,
-    "other" VARCHAR (50)
+-- primary frame material
+CREATE TABLE "primary_frame_material" (
+    "id" SERIAL PRIMARY KEY,
+    "steel" BOOLEAN,
+    "stainless" BOOLEAN,
+    "carbon" BOOLEAN,
+    "aluminum" BOOLEAN,
+    "titanium" BOOLEAN,
+    "magnesium" BOOLEAN,
+    "wood" BOOLEAN,
+    "bamboo" BOOLEAN,
+    "secondry_present" BOOLEAN,
+	"secondary" INT REFERENCES "secondary_frame_material"("id"),
+    "other" VARCHAR (50)
 );
 
-CREATE TABLE "secondary_frame_material" (
-    "id" SERIAL PRIMARY KEY,
-    "is_present" BOOLEAN,
-    "steel" BOOLEAN,
-    "stainless" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "titanium" BOOLEAN,
-    "magnesium" BOOLEAN,
-    "wood" BOOLEAN,
-    "bamboo" BOOLEAN,
-    "other" VARCHAR (50)
+-- secondary frame material, refrenced by primary frame material
+CREATE TABLE "secondary_frame_material" (
+    "id" SERIAL PRIMARY KEY,
+    "is_present" BOOLEAN,
+    "steel" BOOLEAN,
+    "stainless" BOOLEAN,
+    "carbon" BOOLEAN,
+    "aluminum" BOOLEAN,
+    "titanium" BOOLEAN,
+    "magnesium" BOOLEAN,
+    "wood" BOOLEAN,
+    "bamboo" BOOLEAN,
+    "other" VARCHAR (50)
 );
+
+
 
 CREATE TABLE "primary_frame_joining" (
     "id" SERIAL PRIMARY KEY,
