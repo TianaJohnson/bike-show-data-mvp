@@ -45,6 +45,7 @@ CREATE TABLE "primary_frame_material" (
 
 CREATE TABLE "secondary_frame_material" (
     "id" SERIAL PRIMARY KEY,
+    "is_present" BOOLEAN,
     "steel" BOOLEAN,
     "stainless" BOOLEAN,
     "carbon" BOOLEAN,
@@ -54,7 +55,7 @@ CREATE TABLE "secondary_frame_material" (
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
     "other" VARCHAR (50)
-)
+);
 
 CREATE TABLE "primary_frame_joining" (
     "id" SERIAL PRIMARY KEY,
@@ -159,7 +160,7 @@ CREATE TABLE "component_brand" (
 
 -- );
 
-CREATE TABLE "main_info" (
+CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
     "builder_info" INT REFERENCES "builder"("id"),
      
