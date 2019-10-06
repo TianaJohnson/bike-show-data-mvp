@@ -109,19 +109,26 @@ CREATE TABLE "fork_material" (
     "other" VARCHAR (100)
 );
 
-
-
-
-
-
-CREATE TABLE "steel_fork_build" (
-    "id" SERIAL PRIMARY KEY,
-    "unicrown" BOOLEAN,
-    "segmented" BOOLEAN,
-    "lugged" BOOLEAN,
-    "bilam" BOOLEAN,
-    "other" VARCHAR (100)
+-- steel fork build style
+CREATE TABLE "steel_fork_build" (
+    "id" SERIAL PRIMARY KEY,
+    "unicrown" BOOLEAN,
+    "segmented" BOOLEAN,
+    "lugged" BOOLEAN,
+    "bilam" BOOLEAN,
+    "other" VARCHAR (100)
 );
+
+
+
+
+-- Bike location placement refrence table
+CREATE TABLE "placement"(
+    "id" SERIAL PRIMARY KEY,
+    "front" BOOLEAN,
+    "rear" BOOLEAN,
+    "both" BOOLEAN,
+)
 
 -- front/rear?
 CREATE TABLE "axle_type" (
