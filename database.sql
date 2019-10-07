@@ -173,6 +173,29 @@ CREATE TABLE "tire_size" (
     "location" INT REFERENCES "placement"("id")
 );
 
+-- brake type, refrences charectoristics and brand
+CREATE TABLE "brake_type" (
+    "id" SERIAL PRIMARY KEY,
+    "flat_mount_disc" BOOLEAN,
+    "post_mount_disc" BOOLEAN,
+    "is_disc" BOOLEAN,
+    "canti" BOOLEAN,
+    "center_hole" BOOLEAN,
+    "coaster" BOOLEAN,
+    "none" BOOLEAN,
+    "brand" INT REFERENCES "component_brand" ("id"),
+    "other" VARCHAR (100),
+    "characteristic" INT REFERENCES "brake_characteristic" ("id")
+);
+
+-- brake charictoristics refrenced by brake type
+CREATE TABLE "brake_characteristic"(
+    "id" SERIAL PRIMARY KEY,
+    "mechanical" BOOLEAN,
+    "hydralic" BOOLEAN,
+    "none" BOOLEAN
+);
+
 -- file table to refrence all
 CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
