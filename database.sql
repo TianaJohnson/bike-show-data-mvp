@@ -197,6 +197,18 @@ CREATE TABLE "brake_characteristic"(
     "none" BOOLEAN
 );
 
+-- drive train table, refrences brand
+CREATE TABLE "drive_train" (
+	"id" SERIAL PRIMARY KEY,
+	"mechanical" BOOLEAN,
+	"wire" BOOLEAN,
+	"wireless" BOOLEAN,
+	"Hydraulic" BOOLEAN,
+	"single_speef" BOOLEAN,
+	"brand" INT REFERENCES "component_brand" ("id")
+);
+
+
 -- file table to refrence all
 CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
