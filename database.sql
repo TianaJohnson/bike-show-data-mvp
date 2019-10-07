@@ -27,7 +27,7 @@ CREATE TABLE "bike_type" (
     "other" VARCHAR (100)
 );
 
--- primary frame material
+-- primary frame material, removed its link to secondary table
 CREATE TABLE "primary_frame_material" (
     "id" SERIAL PRIMARY KEY,
     "steel" BOOLEAN,
@@ -38,8 +38,6 @@ CREATE TABLE "primary_frame_material" (
     "magnesium" BOOLEAN,
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
-    "secondry_present" BOOLEAN,
-	"secondary" INT REFERENCES "secondary_frame_material"("id"),
     "other" VARCHAR (50)
 );
 
@@ -68,14 +66,13 @@ CREATE TABLE "primary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
-    "secondry_present" BOOLEAN,
-	"secondary" INT REFERENCES "secondary_frame_joining"("id"),
     "other" VARCHAR (100)
 );
 
 -- Secondary frame joining material, if present. Refrenced by Primary frame joining table
 CREATE TABLE "secondary_frame_joining" (
     "id" SERIAL PRIMARY KEY,
+    "is_present" BOOLEAN,
     "welding" BOOLEAN,
     "brass_fillet" BOOLEAN,
     "lugged" BOOLEAN,
@@ -85,19 +82,6 @@ CREATE TABLE "secondary_frame_joining" (
     "mechanical" BOOLEAN,
     "other" VARCHAR (100)
 )
-
--- Wheel size
-CREATE TABLE "wheel_size" (
-    "id" SERIAL PRIMARY KEY,
-    "36" BOOLEAN,
-    "700c/29" BOOLEAN,
-    "650b/27.5" BOOLEAN,
-    "26" BOOLEAN,
-    "24" BOOLEAN,
-    "20" BOOLEAN,
-    "other" VARCHAR (20),
-    "location" INT REFERENCES "placement"("id")
-);
 
 -- Main fork material
 CREATE TABLE "fork_material" (
@@ -128,6 +112,28 @@ CREATE TABLE "placement"(
     "rear" BOOLEAN,
     "both" BOOLEAN,
 )
+
+-- Wheel size
+CREATE TABLE "wheel_size" (
+    "id" SERIAL PRIMARY KEY,
+    "36" BOOLEAN,
+    "700c/29" BOOLEAN,
+    "650b/27.5" BOOLEAN,
+    "26" BOOLEAN,
+    "24" BOOLEAN,
+    "20" BOOLEAN,
+    "other" VARCHAR (20),
+    "location" INT REFERENCES "placement"("id")
+);
+
+-- tire size refrences location
+CREATE TABLE "tire_size" (
+    "id" SERIAL PRIMARY KEY,
+    "diam" INTEGER, 
+    "width" INTEGER,
+    "other" VARCHAR (25),
+    "location" INT REFERENCES "placement"("id")
+);
 
 -- axle type, refrences location
 CREATE TABLE "axle_type" (
@@ -165,14 +171,7 @@ CREATE TABLE "component_brand" (
     "other" VARCHAR (400)
 );
 
--- tire size refrences location
-CREATE TABLE "tire_size" (
-    "id" SERIAL PRIMARY KEY,
-    "diam" INTEGER, 
-    "width" INTEGER,
-    "other" VARCHAR (25),
-    "location" INT REFERENCES "placement"("id")
-);
+
 
 -- brake type, refrences charectoristics and brand
 CREATE TABLE "brake_type" (
