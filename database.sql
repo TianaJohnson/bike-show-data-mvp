@@ -38,7 +38,8 @@ CREATE TABLE "primary_frame_material" (
     "magnesium" BOOLEAN,
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
-    "other" VARCHAR (50)
+    "other" VARCHAR (50),
+    "notes" VARCHAR (200)
 );
 
 -- secondary frame material, refrenced by primary frame material
@@ -53,7 +54,8 @@ CREATE TABLE "secondary_frame_material" (
     "magnesium" BOOLEAN,
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
-    "other" VARCHAR (50)
+    "other" VARCHAR (50),
+    "notes" VARCHAR (200)
 );
 
 -- Primary means of frame joining
@@ -66,7 +68,8 @@ CREATE TABLE "primary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
-    "other" VARCHAR (100)
+    "other" VARCHAR (100),
+    "notes" VARCHAR (200)
 );
 
 -- Secondary frame joining material, if present. Refrenced by Primary frame joining table
@@ -80,7 +83,8 @@ CREATE TABLE "secondary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
-    "other" VARCHAR (100)
+    "other" VARCHAR (100),
+    "notes" VARCHAR (200)
 )
 
 -- Main fork material
