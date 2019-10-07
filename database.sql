@@ -95,7 +95,8 @@ CREATE TABLE "wheel_size" (
     "26" BOOLEAN,
     "24" BOOLEAN,
     "20" BOOLEAN,
-    "other" VARCHAR (20)
+    "other" VARCHAR (20),
+    "location" INT REFERENCES "placement"("id")
 );
 
 -- Main fork material
@@ -200,6 +201,11 @@ CREATE TABLE "brake_characteristic"(
 CREATE TABLE "build" (
     "id" SERIAL PRIMARY KEY,
     "builder_info" INT REFERENCES "builder"("id"),
-    "user_id" INT REFERENCES "user"("id")  
+    "user_id" INT REFERENCES "user"("id"),
+    "bike" INT REFERENCES "bike_type"("id"),
+    "frame_material_1" INT REFERENCES "material"("id"),
+    "frame_material_2" INT REFERENCES "secondary_material"("id"),
+
+
 );
 
