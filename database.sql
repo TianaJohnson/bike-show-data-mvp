@@ -218,9 +218,7 @@ CREATE TABLE "build" (
     "builder_info" INT REFERENCES "builder"("id"),
     "user_id" INT REFERENCES "user"("id"),
     "bike" INT REFERENCES "bike_type"("id"),
-    "frame_material_1" INT REFERENCES "material"("id"),
-    "frame_material_2" INT REFERENCES "secondary_material"("id"),
-
-
+    "frame_material_1" INT REFERENCES "primary_frame_material"("id"),
+    "frame_material_2" INT REFERENCES "secondary_frame_material"("id")
 );
 
