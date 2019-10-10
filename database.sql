@@ -224,7 +224,7 @@ CREATE TABLE "build_file" (
     "wheel_size_id" INT REFERENCES "wheel_size"("id"),
     "tire_size_id" INT REFERENCES "tire_size"("id"),
     "axle_id" INT REFERENCES "axle_type"("id"),
-    "component" INT REFERENCES "component"("id"),
+    "component" INT REFERENCES "component_brand"("id"),
     "brake_id" INT REFERENCES "brake_type"("id"),
     "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
     "dt_id" INT REFERENCES "drive_train"("id")
