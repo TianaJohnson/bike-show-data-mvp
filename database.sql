@@ -210,15 +210,3 @@ CREATE TABLE "drive_train" (
 	"single_speef" BOOLEAN,
 	"brand" INT REFERENCES "component_brand" ("id")
 );
-
-
--- file table to refrence all
-CREATE TABLE "build" (
-    "id" SERIAL PRIMARY KEY,
-    "builder_info" INT REFERENCES "builder"("id"),
-    "user_id" INT REFERENCES "user"("id"),
-    "bike" INT REFERENCES "bike_type"("id"),
-    "frame_material_1" INT REFERENCES "primary_frame_material"("id"),
-    "frame_material_2" INT REFERENCES "secondary_frame_material"("id")
-);
-
