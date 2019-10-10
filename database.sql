@@ -208,3 +208,7 @@ CREATE TABLE "drive_train" (
 	"single_speef" BOOLEAN,
 	"brand" INT REFERENCES "component_brand" ("id")
 );
+
+CREATE TABLE "build_file" (
+
+);
