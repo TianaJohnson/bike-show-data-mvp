@@ -220,6 +220,12 @@ CREATE TABLE "build_file" (
     "sfj_id" INT REFERENCES "secondary_frame_joining"("id"),
     "fork_material_id" INT REFERENCES "for_material"("id"),
     "steel_fork_build_id" INT REFERENCES "steel_fork_build"("id"),
-    
-
+    "Placement_id" INT REFERENCES "placment"("id"),
+    "wheel_size_id" INT REFERENCES "wheel_size"("id"),
+    "tire_size_id" INT REFERENCES "tire_size"("id"),
+    "axle_id" INT REFERENCES "axle_type"("id"),
+    "component" INT REFERENCES "component"("id"),
+    "brake_id" INT REFERENCES "brake_type"("id"),
+    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
+    "dt_id" INT REFERENCES "drive_train"("id")
 );
