@@ -85,7 +85,7 @@ CREATE TABLE "secondary_frame_joining" (
     "mechanical" BOOLEAN,
     "other" VARCHAR (100),
     "notes" VARCHAR (200)
-)
+);
 
 -- Main fork material
 CREATE TABLE "fork_material" (
@@ -115,7 +115,7 @@ CREATE TABLE "placement"(
     "front" BOOLEAN,
     "rear" BOOLEAN,
     "both" BOOLEAN,
-)
+);
 
 -- Wheel size
 CREATE TABLE "wheel_size" (
@@ -174,8 +174,6 @@ CREATE TABLE "component_brand" (
 	"i9" BOOLEAN,
     "other" VARCHAR (400)
 );
-
-
 
 -- brake type, refrences charectoristics and brand
 CREATE TABLE "brake_type" (
