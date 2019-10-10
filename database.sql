@@ -210,5 +210,16 @@ CREATE TABLE "drive_train" (
 );
 
 CREATE TABLE "build_file" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user"("id"),
+    "builder_id" INT REFERENCES "builder"("id"),
+    "bike_type_id" INT REFERENCES "bike_type"("id"),
+    "pfm_id" INT REFERENCES "primary_frame_material"("id"),
+    "sfm_id" INT REFERENCES "secondary_frame_material"("id"),
+    "pfj_id" INT REFERENCES "primary_frame_joining"("id"),
+    "sfj_id" INT REFERENCES "secondary_frame_joining"("id"),
+    "fork_material_id" INT REFERENCES "for_material"("id"),
+    "steel_fork_build_id" INT REFERENCES "steel_fork_build"("id"),
+    
 
 );
