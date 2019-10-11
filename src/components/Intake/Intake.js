@@ -32,7 +32,7 @@ class Intake extends Component {
         console.log('add builder info');
         const action = {
             type: 'ADD_BUILDER',
-            payload: this.props.reduxStore.builderIntakeReducer.builderIntakeReducer,
+            payload: this.props.reduxStore.builder.builderIntakeReducer,
         };
         this.props.dispatch(action);
         this.setState({
@@ -55,7 +55,7 @@ class Intake extends Component {
 
 
     render() {
-        const builder = this.props.builder.builderIntakeReducer;
+        const builder = this.props.reduxStore.builder.builderIntakeReducer;
         return (
             <div className="intake-main">
                 {/* <TestIntake/> */}
