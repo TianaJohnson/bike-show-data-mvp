@@ -25,8 +25,35 @@ class Intake extends Component {
         this.props.history.push('/frame');
       }
 
+    //Send to saga to create a builder in the data base
+  addCustomer = (event) => {
+    console.log('add builder info');
+    const action = {
+      type: 'ADD_BUILDER',
+      payload: this.props.reduxStore.builderIntakeReducer.builderIntakeReducer,
+    };
+    this.props.dispatch(action);
+    this.setState({
+      builder_name: '',
+      brand: ''
+    })
+   // this.props.history.push(`/project/:id`);
+  }
+  // i need to build out the build "file" reducer/saga for this
+
+    //potential handle change if it works properly
+    handleChange = (key) => (event) => {
+        const action = {
+            type: 'SET_BUILDER',
+            payload: { key: key, value: event.target.value },
+        };
+        console.log('sending to build saga')
+        this.props.dispatch(action);
+      }
+
 
     render() {
+        const builder = this.props.builder.builderIntakeReducer;
         return (
             <div className="intake-main">
             {/* <TestIntake/> */}
