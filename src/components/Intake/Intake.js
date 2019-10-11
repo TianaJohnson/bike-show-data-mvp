@@ -5,8 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
 import Button from '@material-ui/core/Button';
-
-
 import './Intake.css';
 
 const useStyles = makeStyles(theme => ({
