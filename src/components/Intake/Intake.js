@@ -20,26 +20,28 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class Intake extends Component {
+    componentDidMount() {
+    }
 
     buildBike = () => {
         this.props.history.push('/frame');
-      }
+    }
 
     //Send to saga to create a builder in the data base
-  addCustomer = (event) => {
-    console.log('add builder info');
-    const action = {
-      type: 'ADD_BUILDER',
-      payload: this.props.reduxStore.builderIntakeReducer.builderIntakeReducer,
-    };
-    this.props.dispatch(action);
-    this.setState({
-      builder_name: '',
-      brand: ''
-    })
-   // this.props.history.push(`/project/:id`);
-  }
-  // i need to build out the build "file" reducer/saga for this
+    addCustomer = (event) => {
+        console.log('add builder info');
+        const action = {
+            type: 'ADD_BUILDER',
+            payload: this.props.reduxStore.builderIntakeReducer.builderIntakeReducer,
+        };
+        this.props.dispatch(action);
+        this.setState({
+            builder_name: '',
+            brand: ''
+        })
+        // this.props.history.push(`/project/:id`);
+    }
+    // i need to build out the build "file" reducer/saga for this
 
     //potential handle change if it works properly
     handleChange = (key) => (event) => {
@@ -49,51 +51,56 @@ class Intake extends Component {
         };
         console.log('sending to build saga')
         this.props.dispatch(action);
-      }
+    }
 
 
     render() {
         const builder = this.props.builder.builderIntakeReducer;
         return (
             <div className="intake-main">
-            {/* <TestIntake/> */}
-            <Card className="intake-card">    
-                
+                {/* <TestIntake/> */}
+                <Card className="intake-card">
+
                     <FormControl>
-                    <TextField
-                        style={{ margin: 10 }}
-                        className="brand-input"
-                        id="brand"
-                        label="Brand"
-                        variant="outlined"
-                        margin="normal"
-                    />
+                        <TextField
+                            style={{ margin: 10 }}
+                            className="builderInput"
+                            id="builder_name"
+                            label="builder"
+                            //placeholder=" "
+                            variant="outlined"
+                            margin="normal"
+                            value={builder.builder_name}
+                            onChange={this.handleChange('builder_name')}
+                        />
                     </FormControl>
                     <FormControl>
-                    <TextField
-                        style={{ margin: 10 }}
-                        className="builder-input"
-                        id="builder"
-                        label="Builder"
-                        variant="outlined"
-                        margin="normal"
-                    />
+                        <TextField
+                            style={{ margin: 10 }}
+                            className="brandInput"
+                            id="brand"
+                            label="brand"
+                            variant="outlined"
+                            margin="normal"
+                            value={builder.brand}
+                            onChange={this.handleChange('brand')}
+                        />
                     </FormControl>
                     <Button variant="contained"
-                            color="secondary"
-                            size="large"
-                            style={{ margin: 10 }}
-                            onClick={this.buildBike}>
+                        color="secondary"
+                        size="large"
+                        style={{ margin: 10 }}
+                        onClick={this.buildBike}>
                         Build
                     </Button>
-                    </Card>
-                </div>
-            
+                </Card>
+            </div>
+
         )
     }
 }
 const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
-  }
+}
 
 export default connect(mapStateToProps)(Intake);
