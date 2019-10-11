@@ -15,4 +15,4 @@ const builderIntakeReducer = (state = [], action) => {
       }
     };
 
-export {builderIntakeReducer};
+export default builderIntakeReducer;
