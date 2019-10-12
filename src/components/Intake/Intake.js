@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
 import Button from '@material-ui/core/Button';
 import './Intake.css';
 
-const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    formControl: {
-        margin: theme.spacing(1),
-    },
-}));
+// const useStyles = makeStyles(theme => ({
+//     container: {
+//         display: 'flex',
+//         flexWrap: 'wrap',
+//     },
+//     formControl: {
+//         margin: theme.spacing(1),
+//     },
+// }));
 
 class Intake extends Component {
 
@@ -35,7 +35,7 @@ class Intake extends Component {
         console.log('add builder info');
         const action = {
             type: 'ADD_BUILDER',
-            payload: this.props.reduxStore.builder.builderIntakeReducer,
+            payload: this.state,
         };
         this.props.dispatch(action);
         this.setState({
@@ -46,14 +46,14 @@ class Intake extends Component {
     }
 
     //potential handle change if it works properly
-    // handleChange = (key) => (event) => {
-    //     const action = {
-    //         type: 'SET_BUILDER',
-    //         payload: { key: key, value: event.target.value },
-    //     };
-    //     console.log('sending to build saga')
-    //     this.props.dispatch(action);
-    // }
+    handleChange = (key) => (event) => {
+        const action = {
+            type: 'SET_BUILDER',
+            payload: { key: key, value: event.target.value },
+        };
+        console.log('sending to build saga')
+        this.props.dispatch(action);
+    }
 
 
     render() {
@@ -72,7 +72,7 @@ class Intake extends Component {
                             name="builder_name"
                             variant="outlined"
                             margin="normal"
-                            //value={builder.builder_name}
+                            value={builder.builder_name}
                             onChange={this.handleChange('builder_name')}
                         />
                     </FormControl>
@@ -84,7 +84,7 @@ class Intake extends Component {
                             label="brand"
                             variant="outlined"
                             margin="normal"
-                            //value={builder.brand}
+                            value={builder.brand}
                             onChange={this.handleChange('brand')}
                         />
                     </FormControl>
