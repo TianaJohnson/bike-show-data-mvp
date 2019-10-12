@@ -45,19 +45,23 @@ class Intake extends Component {
         this.props.history.push('/frame');
     }
 
+    handleChange = (evt) => {
+        this.setState({ [evt.target.name]: evt.target.value });
+      }
+      
     //potential handle change if it works properly
-    handleChange = (key) => (event) => {
-        const action = {
-            type: 'SET_BUILDER',
-            payload: { key: key, value: event.target.value },
-        };
-        console.log('sending to build saga')
-        this.props.dispatch(action);
-    }
+    // handleChange = (key) => (event) => {
+    //     const action = {
+    //         type: 'SET_BUILDER',
+    //         payload: { key: key, value: event.target.value },
+    //     };
+    //     console.log('sending to build saga')
+    //     this.props.dispatch(action);
+    // }
 
 
     render() {
-        const builder = this.props.reduxStore.builder.builderIntakeReducer;
+       // const builder = this.props.reduxStore.builder.builderIntakeReducer;
         return (
             <div className="intake-main">
                 {/* <TestIntake/> */}
@@ -72,19 +76,20 @@ class Intake extends Component {
                             name="builder_name"
                             variant="outlined"
                             margin="normal"
-                            value={builder.builder_name}
+                            //value={this.state.builder_name}
                             onChange={this.handleChange('builder_name')}
                         />
                     </FormControl>
                     <FormControl>
                         <TextField
                             style={{ margin: 10 }}
+                            name="brand"
                             className="brandInput"
                             id="brand"
                             label="brand"
                             variant="outlined"
                             margin="normal"
-                            value={builder.brand}
+                            //value={this.state.brand}
                             onChange={this.handleChange('brand')}
                         />
                     </FormControl>
