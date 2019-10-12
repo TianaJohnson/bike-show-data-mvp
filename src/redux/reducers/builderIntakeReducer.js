@@ -1,4 +1,4 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
 
 //buider intake SET reducer, interacts w/ saga
@@ -15,4 +15,9 @@ const builderIntakeReducer = (state = [], action) => {
       }
     };
 
-export default builderIntakeReducer;
+    export default combineReducers({
+      builderIntakeReducer,
+  
+  })
+
+export {builderIntakeReducer};

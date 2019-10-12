@@ -18,6 +18,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class Intake extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          builder_name: '',
+          brand: ''
+        }
+      }
+
     componentDidMount() {
     }
 
@@ -65,10 +74,10 @@ class Intake extends Component {
                             className="builderInput"
                             id="builder_name"
                             label="builder"
-                            //placeholder=" "
+                            name="builder_name"
                             variant="outlined"
                             margin="normal"
-                            value={builder.builder_name}
+                            //value={builder.builder_name}
                             onChange={this.handleChange('builder_name')}
                         />
                     </FormControl>
@@ -80,7 +89,7 @@ class Intake extends Component {
                             label="brand"
                             variant="outlined"
                             margin="normal"
-                            value={builder.brand}
+                            //value={builder.brand}
                             onChange={this.handleChange('brand')}
                         />
                     </FormControl>

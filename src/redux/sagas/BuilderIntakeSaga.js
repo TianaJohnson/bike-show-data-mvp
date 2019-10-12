@@ -5,7 +5,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 //Create
 function* addBuiler(action) {
     try { 
-      yield axios.post('/intake', action.payload);
+      yield axios.post('/api/intake', action.payload);
       yield alert('builder added.')
       yield put({ type: 'FETCH_BUILDER' });
     } catch (error) {
@@ -26,9 +26,9 @@ function* addBuiler(action) {
   }
 }
 
-function* customerSaga() {
+function* builderIntakeSaga() {
     yield takeLatest('ADD_BUILDER', addBuiler);
     yield takeLatest('FETCH_BUILDER', fetchBuilder);
 }
 
-  export default customerSaga;
+  export default builderIntakeSaga;
