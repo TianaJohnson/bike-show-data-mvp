@@ -27,15 +27,11 @@ class Intake extends Component {
         }
       }
 
-    componentDidMount() {
-    }
-
-    buildBike = () => {
-        this.props.history.push('/frame');
-    }
+    // componentDidMount() {
+    // }
 
     //Send to saga to create a builder in the data base
-    addCustomer = (event) => {
+    buildBike = (event) => {
         console.log('add builder info');
         const action = {
             type: 'ADD_BUILDER',
@@ -46,19 +42,18 @@ class Intake extends Component {
             builder_name: '',
             brand: ''
         })
-        // this.props.history.push(`/project/:id`);
+        this.props.history.push('/frame');
     }
-    // i need to build out the build "file" reducer/saga for this
 
     //potential handle change if it works properly
-    handleChange = (key) => (event) => {
-        const action = {
-            type: 'SET_BUILDER',
-            payload: { key: key, value: event.target.value },
-        };
-        console.log('sending to build saga')
-        this.props.dispatch(action);
-    }
+    // handleChange = (key) => (event) => {
+    //     const action = {
+    //         type: 'SET_BUILDER',
+    //         payload: { key: key, value: event.target.value },
+    //     };
+    //     console.log('sending to build saga')
+    //     this.props.dispatch(action);
+    // }
 
 
     render() {
