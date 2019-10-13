@@ -13,8 +13,21 @@ router.post('/', (req, res, next) => {
                       VALUES ($1, $2) RETURNING "id";`;
         pool.query(queryText, [req.body.builder_name,
         req.body.brand])
-        .then(() => {
-            res.sendStatus(201);
+        .then((results) => {
+    // Insert empty file for builder
+     const anotherQuery = `INSERT INTO "build_file"
+          ("builder_id", 
+           "user_id") 
+           VALUES ($1, $2);`;
+     pool.query(anotherQuery, [results.rows[0].id,
+     req.user.id]).then(() => {
+         console.log('server side intake Post');
+         res.sendStatus(201);
+     })
+     .catch(error => {
+         res.sendStatus(500);
+
+})
         }).catch((error) => {
                 console.log('Something went wrong in intake post', error);
 
