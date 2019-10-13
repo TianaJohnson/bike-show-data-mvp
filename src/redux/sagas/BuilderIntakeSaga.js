@@ -8,6 +8,7 @@ function* addBuiler(action) {
       yield axios.post('/api/intake', action.payload);
       yield alert('builder added.')
       yield put({ type: 'FETCH_BUILDER' });
+      console.log("in add builder saga...");
     } catch (error) {
       console.log('Error with add builder saga:', error);
     }

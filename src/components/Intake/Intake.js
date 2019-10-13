@@ -76,8 +76,8 @@ class Intake extends Component {
                             name="builder_name"
                             variant="outlined"
                             margin="normal"
-                            //value={this.state.builder_name}
-                            onChange={this.handleChange('builder_name')}
+                            value={this.state.builder_name}
+                            onChange={this.handleChange}
                         />
                     </FormControl>
                     <FormControl>
@@ -89,8 +89,8 @@ class Intake extends Component {
                             label="brand"
                             variant="outlined"
                             margin="normal"
-                            //value={this.state.brand}
-                            onChange={this.handleChange('brand')}
+                            value={this.state.brand}
+                            onChange={this.handleChange}
                         />
                     </FormControl>
                     <Button variant="contained"
