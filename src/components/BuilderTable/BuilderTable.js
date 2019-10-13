@@ -7,14 +7,21 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 // import Button from '@material-ui/core/Button';
+import BuildRow from './BuilderTableRows';
 import { connect } from 'react-redux';
 
 class BuilderTable extends Component {
 
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_BUILDER'}); 
+        console.log(this.props.builder)
+        
+    }
+
     render() {
         return (
             <div>
-                <Card>
+                <Card calssName="builder_table" >
                     <Paper>
                         <Table className="admin_table">
                             <TableHead>
@@ -24,11 +31,12 @@ class BuilderTable extends Component {
                                     <TableCell>View/Edit</TableCell>
                                 </TableRow>
                             </TableHead>
-                            {/* <TableBody>
-                                {this.props.reduxStore.builder.builderIntakeReducer.map(builder =>
-                                    <BuilderTableRow key={builder.id} history={this.props.history} builder={builder} />
-                                )}
-                            </TableBody> */}
+                            <TableBody>
+                                {/* {this.props.builder.map((builders, i) => {
+                                    return (<BuildRow key={i}   
+                                        builders={builders} history={this.props.history}/>);
+                                })} */}
+                            </TableBody>
                         </Table>
                     </Paper>
                 </Card>
@@ -36,8 +44,9 @@ class BuilderTable extends Component {
         )
     }
 }
-const mapStateToProps = reduxStore => {
-    return { reduxStore: reduxStore };
-}
+const mapStateToProps = reduxStore => ({
+    ...reduxStore,
+    builder: reduxStore.builder,
+});
 
 export default connect(mapStateToProps)(BuilderTable);

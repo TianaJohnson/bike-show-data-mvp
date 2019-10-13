@@ -18,7 +18,7 @@ function* addBuiler(action) {
   //read
   function* fetchBuilder(action) {
     try{
-    const responseFromServer = yield axios.get('/api/intake');
+    const responseFromServer = yield axios.get('/api/intake/builder');
     yield put({ type: 'SET_BUILDER', payload: responseFromServer.data});
     console.log('response from server is:',responseFromServer.data)
   } catch (error) {

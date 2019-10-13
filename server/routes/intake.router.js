@@ -36,20 +36,24 @@ router.post('/', (req, res, next) => {
     }
 });
 
+router.get('/builder', (req, res) => {
+    console.log('in GET ')
+    if (req.isAuthenticated()) {
+        console.log('req.user:', req.user);
+        pool.query(`SELECT * FROM "builder" 
+                    ORDER BY "id" DESC;`)
+            .then(results => {
+                console.log(results.rows)
+                res.send(results.rows)
+            })
+            .catch(error => {
+                console.log('Error making SELECT for builder info database:', error);
+                res.sendStatus(500);
+            });
+    } else {
+        // They are not authenticated.
+        res.sendStatus(403);
+    }
+});
+
 module.exports = router;
-
-// .then((results) => {
-//     // Insert empty project for new customer
-//      const anotherQuery = `INSERT INTO "build"
-//           ("builder_id", 
-//            "user_id") 
-//            VALUES ($1, $2);`;
-//      pool.query(anotherQuery, [results.rows[0].id,
-//      req.user.id]).then(() => {
-//          console.log('server side intake Post');
-//          res.sendStatus(201);
-//      })
-//      .catch(error => {
-//          res.sendStatus(500);
-
-// })
