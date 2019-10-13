@@ -230,3 +230,4 @@ CREATE TABLE "build_file" (
     "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
     "dt_id" INT REFERENCES "drive_train"("id")
 );
+-- add a way to add more than one bike to a builder
