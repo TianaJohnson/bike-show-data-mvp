@@ -33,10 +33,10 @@ class BuilderTable extends Component {
                             </TableHead>
                             <TableBody>
                                 {/* this is still a problem */}
-                                {/* {this.props.builder.map((builders, i) => {
+                                {this.props.builder.map((builders, i) => {
                                     return (<BuildRow key={i}   
                                         builders={builders} history={this.props.history}/>);
-                                })} */}
+                                })}
                             </TableBody>
                         </Table>
                     </Paper>
