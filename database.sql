@@ -1,17 +1,20 @@
 
+-- to recreate in database
+
 -- login table
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
 );
 
 -- builder identification table
 CREATE TABLE "builder" (
     "id" SERIAL PRIMARY KEY,
-    "builder_name" VARCHAR (100),
-    "brand" VARCHAR (100)
+    "builder_name" VARCHAR (100),
+    "build_brand" VARCHAR (100)
 );
+
 
 -- Bike type per builder
 CREATE TABLE "bike_type" (
@@ -25,7 +28,8 @@ CREATE TABLE "bike_type" (
     "tandem" BOOLEAN,
     "experimental" BOOLEAN,
     "touring" BOOLEAN,
-    "other" VARCHAR (100)
+    "other_bike_type" VARCHAR (100),
+	"notes_bike_type" VARCHAR (200)
 );
 
 -- primary frame material, removed its link to secondary table
@@ -39,24 +43,24 @@ CREATE TABLE "primary_frame_material" (
     "magnesium" BOOLEAN,
     "wood" BOOLEAN,
     "bamboo" BOOLEAN,
-    "other" VARCHAR (50),
-    "notes" VARCHAR (200)
+    "other_pfm" VARCHAR (50),
+    "notes_pfm" VARCHAR (200)
 );
 
 -- secondary frame material, refrenced by primary frame material
 CREATE TABLE "secondary_frame_material" (
     "id" SERIAL PRIMARY KEY,
     "is_present" BOOLEAN,
-    "steel" BOOLEAN,
-    "stainless" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "titanium" BOOLEAN,
-    "magnesium" BOOLEAN,
-    "wood" BOOLEAN,
-    "bamboo" BOOLEAN,
-    "other" VARCHAR (50),
-    "notes" VARCHAR (200)
+    "steel_sfm" BOOLEAN,
+    "stainless_sfm" BOOLEAN,
+    "carbon_sfm" BOOLEAN,
+    "aluminum_sfm" BOOLEAN,
+    "titanium_sfm" BOOLEAN,
+    "magnesium_sfm" BOOLEAN,
+    "wood_sfm" BOOLEAN,
+    "bamboo_sfm" BOOLEAN,
+    "other_sfm" VARCHAR (50),
+    "notes_sfm" VARCHAR (200)
 );
 
 -- Primary means of frame joining
@@ -69,8 +73,8 @@ CREATE TABLE "primary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
-    "other" VARCHAR (100),
-    "notes" VARCHAR (200)
+    "other_pfj" VARCHAR (100),
+    "notes_pfj" VARCHAR (200)
 );
 
 -- Secondary frame joining material, if present. Refrenced by Primary frame joining table
@@ -84,8 +88,8 @@ CREATE TABLE "secondary_frame_joining" (
     "bonded" BOOLEAN,
     "silver_fillet" BOOLEAN,
     "mechanical" BOOLEAN,
-    "other" VARCHAR (100),
-    "notes" VARCHAR (200)
+    "other_sfj" VARCHAR (100),
+    "notes_sfj" VARCHAR (200)
 );
 
 -- Main fork material
@@ -97,7 +101,8 @@ CREATE TABLE "fork_material" (
     "stainless" BOOLEAN,
     "steel" BOOLEAN,
     "steel_build" INT REFERENCES "steel_fork_build"("id"),
-    "other" VARCHAR (100)
+    "other_fm" VARCHAR (100),
+	"notes_fm" VARCHAR
 );
 
 -- steel fork build style, refrenced by fork material table
@@ -107,7 +112,8 @@ CREATE TABLE "steel_fork_build" (
     "segmented" BOOLEAN,
     "lugged" BOOLEAN,
     "bilam" BOOLEAN,
-    "other" VARCHAR (100)
+    "other_sfb" VARCHAR (100),
+	"notes_sfb" VARCHAR
 );
 
 -- Bike location placement refrence table
@@ -127,8 +133,8 @@ CREATE TABLE "wheel_size" (
     "26" BOOLEAN,
     "24" BOOLEAN,
     "20" BOOLEAN,
-    "other" VARCHAR (20),
-    "location" INT REFERENCES "placement"("id")
+    "other_ws" VARCHAR (20),
+    "location_id" INT REFERENCES "placement"("id")
 );
 
 -- tire size refrences location
@@ -137,7 +143,7 @@ CREATE TABLE "tire_size" (
     "diam" INTEGER, 
     "width" INTEGER,
     "other" VARCHAR (25),
-    "location" INT REFERENCES "placement"("id")
+    "location_id" INT REFERENCES "placement"("id")
 );
 
 -- axle type, refrences location
@@ -147,7 +153,7 @@ CREATE TABLE "axle_type" (
     "ta" BOOLEAN,
     "track" BOOLEAN,
     "other" VARCHAR (100),
-    "location" INT REFERENCES "placement"("id")
+    "location_id" INT REFERENCES "placement"("id")
 );
 
 --brand type, to be refrenced
@@ -188,8 +194,11 @@ CREATE TABLE "brake_type" (
     "none" BOOLEAN,
     "brand" INT REFERENCES "component_brand" ("id"),
     "other" VARCHAR (100),
-    "characteristic" INT REFERENCES "brake_characteristic" ("id")
+    "characteristic" INT REFERENCES "brake_characteristic" ("id"),
+	"location_id" INT REFERENCES "placement"("id")
 );
+
+
 
 -- brake charictoristics refrenced by brake type
 CREATE TABLE "brake_characteristic"(
@@ -230,4 +239,3 @@ CREATE TABLE "build_file" (
     "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
     "dt_id" INT REFERENCES "drive_train"("id")
 );
--- add a way to add more than one bike to a builder
