@@ -177,7 +177,7 @@ CREATE TABLE "component_brand" (
     "dt_swiss" BOOLEAN,
     "white_industries" BOOLEAN,
     "velocity" BOOLEAN,
-    "phill_wood" BOOLEAN,
+    "phil_wood" BOOLEAN,
     "i9" BOOLEAN,
     "other" VARCHAR (400)
 );
@@ -197,8 +197,6 @@ CREATE TABLE "brake_type" (
     "characteristic" INT REFERENCES "brake_characteristic" ("id"),
 	"location_id" INT REFERENCES "placement"("id")
 );
-
-
 
 -- brake charictoristics refrenced by brake type
 CREATE TABLE "brake_characteristic"(
@@ -230,7 +228,6 @@ CREATE TABLE "build_file" (
     "sfj_id" INT REFERENCES "secondary_frame_joining"("id"),
     "fork_material_id" INT REFERENCES "fork_material"("id"),
     "steel_fork_build_id" INT REFERENCES "steel_fork_build"("id"),
-    "Placement_id" INT REFERENCES "placement"("id"),
     "wheel_size_id" INT REFERENCES "wheel_size"("id"),
     "tire_size_id" INT REFERENCES "tire_size"("id"),
     "axle_id" INT REFERENCES "axle_type"("id"),
