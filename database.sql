@@ -134,7 +134,8 @@ CREATE TABLE "wheel_size" (
     "24" BOOLEAN,
     "20" BOOLEAN,
     "other_ws" VARCHAR (20),
-    "location_id" INT REFERENCES "placement"("id")
+    "location_w_id" INT REFERENCES "placement"("id")
+    "file_id"
 );
 
 -- tire size refrences location
@@ -143,7 +144,7 @@ CREATE TABLE "tire_size" (
     "diam" INTEGER, 
     "width" INTEGER,
     "other" VARCHAR (25),
-    "location_id" INT REFERENCES "placement"("id")
+    "location_ts_id" INT REFERENCES "placement"("id")
 );
 
 -- axle type, refrences location
@@ -153,7 +154,7 @@ CREATE TABLE "axle_type" (
     "ta" BOOLEAN,
     "track" BOOLEAN,
     "other" VARCHAR (100),
-    "location_id" INT REFERENCES "placement"("id")
+    "location_at_id" INT REFERENCES "placement"("id")
 );
 
 --brand type, to be refrenced
@@ -179,6 +180,7 @@ CREATE TABLE "component_brand" (
     "velocity" BOOLEAN,
     "phil_wood" BOOLEAN,
     "i9" BOOLEAN,
+    "fsa" BOOLEAN,
     "other" VARCHAR (400)
 );
 
@@ -192,10 +194,10 @@ CREATE TABLE "brake_type" (
     "center_hole" BOOLEAN,
     "coaster" BOOLEAN,
     "none" BOOLEAN,
-    "brand" INT REFERENCES "component_brand" ("id"),
+    "bt_brand_id" INT REFERENCES "component_brand" ("id"),
     "other" VARCHAR (100),
-    "characteristic" INT REFERENCES "brake_characteristic" ("id"),
-	"location_id" INT REFERENCES "placement"("id")
+    "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
+	"location_bt_id" INT REFERENCES "placement"("id")
 );
 
 -- brake charictoristics refrenced by brake type
@@ -203,7 +205,8 @@ CREATE TABLE "brake_characteristic"(
     "id" SERIAL PRIMARY KEY,
     "mechanical" BOOLEAN,
     "hydralic" BOOLEAN,
-    "none" BOOLEAN
+    "none" BOOLEAN,
+    "location_bc_id" BOOLEAN
 );
 
 -- drive train table, refrences brand
@@ -213,8 +216,8 @@ CREATE TABLE "drive_train" (
     "wire" BOOLEAN,
     "wireless" BOOLEAN,
     "Hydraulic" BOOLEAN,
-    "single_speef" BOOLEAN,
-    "brand" INT REFERENCES "component_brand" ("id")
+    "single_speed" BOOLEAN,
+    "dt_brand_id" INT REFERENCES "component_brand" ("id")
 );
 
 CREATE TABLE "build_file" (
