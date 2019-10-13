@@ -134,8 +134,8 @@ CREATE TABLE "wheel_size" (
     "24" BOOLEAN,
     "20" BOOLEAN,
     "other_ws" VARCHAR (20),
-    "location_w_id" INT REFERENCES "placement"("id")
-    "file_id"
+    "location_w_id" INT REFERENCES "placement"("id"),
+    "file_id_ws" INT REFERENCES "bike_file"("id")
 );
 
 -- tire size refrences location
@@ -144,7 +144,8 @@ CREATE TABLE "tire_size" (
     "diam" INTEGER, 
     "width" INTEGER,
     "other" VARCHAR (25),
-    "location_ts_id" INT REFERENCES "placement"("id")
+    "location_ts_id" INT REFERENCES "placement"("id"),
+    "file_id_ts" INT REFERENCES "bike_file"("id")
 );
 
 -- axle type, refrences location
@@ -154,7 +155,8 @@ CREATE TABLE "axle_type" (
     "ta" BOOLEAN,
     "track" BOOLEAN,
     "other" VARCHAR (100),
-    "location_at_id" INT REFERENCES "placement"("id")
+    "location_at_id" INT REFERENCES "placement"("id"),
+    "file_id_at" INT REFERENCES "bike_file"("id")
 );
 
 --brand type, to be refrenced
@@ -197,7 +199,8 @@ CREATE TABLE "brake_type" (
     "bt_brand_id" INT REFERENCES "component_brand" ("id"),
     "other" VARCHAR (100),
     "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
-	"location_bt_id" INT REFERENCES "placement"("id")
+	"location_bt_id" INT REFERENCES "placement"("id"),
+    "file_id_bt" INT REFERENCES "bike_file"("id")
 );
 
 -- brake charictoristics refrenced by brake type
@@ -206,7 +209,7 @@ CREATE TABLE "brake_characteristic"(
     "mechanical" BOOLEAN,
     "hydralic" BOOLEAN,
     "none" BOOLEAN,
-    "location_bc_id" BOOLEAN
+    "file_id_bc" INT REFERENCES "bike_file"("id")
 );
 
 -- drive train table, refrences brand
