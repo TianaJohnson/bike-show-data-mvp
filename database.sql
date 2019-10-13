@@ -1,5 +1,6 @@
 
 -- to recreate in database
+-- drop database, rebuild with this one
 
 -- login table
 CREATE TABLE "user" (
