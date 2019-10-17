@@ -1,7 +1,4 @@
 
--- to recreate in database
--- drop database, rebuild with this one
-
 -- login table
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
@@ -117,6 +114,16 @@ CREATE TABLE "steel_fork_build" (
 	"notes_sfb" VARCHAR
 );
 
+CREATE TABLE "frame_info_file" (
+    "id" SERIAL PRIMARY KEY,
+    "pfm_id" INT REFERENCES "primary_frame_material"("id"),
+    "sfm_id" INT REFERENCES "secondary_frame_material"("id"),
+    "pfj_id" INT REFERENCES "primary_frame_joining"("id"),
+    "sfj_id" INT REFERENCES "secondary_frame_joining"("id"),
+    "fork_material_id" INT REFERENCES "fork_material"("id"),
+    "steel_fork_build_id" INT REFERENCES "steel_fork_build"("id")
+)
+
 -- Bike location placement refrence table
 CREATE TABLE "placement"(
     "id" SERIAL PRIMARY KEY,
@@ -159,6 +166,10 @@ CREATE TABLE "axle_type" (
     "location_at_id" INT REFERENCES "placement"("id"),
     "file_id_at" INT REFERENCES "bike_file"("id")
 );
+
+CREATE TABLE "wheels_tires_axles_file"(
+    "id" SERIAL PRIMARY KEY,
+)
 
 --brand type, to be refrenced
 CREATE TABLE "component_brand" (
@@ -224,22 +235,17 @@ CREATE TABLE "drive_train" (
     "dt_brand_id" INT REFERENCES "component_brand" ("id")
 );
 
-CREATE TABLE "build_file" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INT REFERENCES "user"("id"),
-    "builder_id" INT REFERENCES "builder"("id"),
-    "bike_type_id" INT REFERENCES "bike_type"("id"),
-    "pfm_id" INT REFERENCES "primary_frame_material"("id"),
-    "sfm_id" INT REFERENCES "secondary_frame_material"("id"),
-    "pfj_id" INT REFERENCES "primary_frame_joining"("id"),
-    "sfj_id" INT REFERENCES "secondary_frame_joining"("id"),
-    "fork_material_id" INT REFERENCES "fork_material"("id"),
-    "steel_fork_build_id" INT REFERENCES "steel_fork_build"("id"),
-    "wheel_size_id" INT REFERENCES "wheel_size"("id"),
-    "tire_size_id" INT REFERENCES "tire_size"("id"),
-    "axle_id" INT REFERENCES "axle_type"("id"),
-    "component" INT REFERENCES "component_brand"("id"),
-    "brake_id" INT REFERENCES "brake_type"("id"),
-    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
-    "dt_id" INT REFERENCES "drive_train"("id")
-);
+-- CREATE TABLE "build_file" (
+--     "id" SERIAL PRIMARY KEY,
+--     "user_id" INT REFERENCES "user"("id"),
+--     "builder_id" INT REFERENCES "builder"("id"),
+--     "bike_type_id" INT REFERENCES "bike_type"("id"),
+--     "wheel_size_id" INT REFERENCES "wheel_size"("id"),
+--     "tire_size_id" INT REFERENCES "tire_size"("id"),
+--     "axle_id" INT REFERENCES "axle_type"("id"),
+--     "component" INT REFERENCES "component_brand"("id"),
+--     "brake_id" INT REFERENCES "brake_type"("id"),
+--     "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
+--     "dt_id" INT REFERENCES "drive_train"("id"),
+--     "bike_img" TEXT
+-- );
