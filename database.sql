@@ -171,6 +171,7 @@ CREATE TABLE "axle_type" (
     "file_id_at" INT REFERENCES "bike_file"("id")
 );
 
+-- wheel/tires/axles file
 CREATE TABLE "wheels_tires_axles_file"(
     "id" SERIAL PRIMARY KEY,
     "wheel_size_id" INT REFERENCES "wheel_size"("id"),
@@ -214,7 +215,7 @@ CREATE TABLE "brake_type" (
     "canti" BOOLEAN,
     "center_hole" BOOLEAN,
     "coaster" BOOLEAN,
-    "none" BOOLEAN,
+    "none_bt" BOOLEAN,
     "bt_brand_id" INT REFERENCES "component_brand" ("id"),
     "other" VARCHAR (100),
     "notes_bt" VARCHAR (100),
@@ -228,7 +229,8 @@ CREATE TABLE "brake_characteristic"(
     "id" SERIAL PRIMARY KEY,
     "mechanical" BOOLEAN,
     "hydralic" BOOLEAN,
-    "none" BOOLEAN,
+    "none_bc" BOOLEAN,
+    "notes_bc" VARCHAR (100),
     "file_id_bc" INT REFERENCES "bike_file"("id")
 );
 
@@ -240,9 +242,11 @@ CREATE TABLE "drive_train" (
     "wireless" BOOLEAN,
     "Hydraulic" BOOLEAN,
     "single_speed" BOOLEAN,
+    "notes_dt" VARCHAR (100),
     "dt_brand_id" INT REFERENCES "component_brand" ("id")
 );
 
+-- brakes and dt file
 CREATE TABLE "group_set_file"(
     "id" SERIAL PRIMARY KEY,
     "brake_id" INT REFERENCES "brake_type"("id"),
@@ -250,11 +254,13 @@ CREATE TABLE "group_set_file"(
     "dt_id" INT REFERENCES "drive_train"("id")
 )
 
+-- main file to refrence all other
 CREATE TABLE "build_file" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "user"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
     "frame_info_id" INT REFERENCES "frame_info_file"("id"),
-
+    "wta_file_id" INT REFERENCES "wheels_tires_axles_file"("id"),
+    "gs_id" INT REFERENCES "group_set_file"("id"),
     "bike_img" TEXT
 );
