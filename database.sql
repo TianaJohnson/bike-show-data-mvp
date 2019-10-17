@@ -169,6 +169,9 @@ CREATE TABLE "axle_type" (
 
 CREATE TABLE "wheels_tires_axles_file"(
     "id" SERIAL PRIMARY KEY,
+    "wheel_size_id" INT REFERENCES "wheel_size"("id"),
+    "tire_size_id" INT REFERENCES "tire_size"("id"),
+    "axle_id" INT REFERENCES "axle_type"("id")
 )
 
 --brand type, to be refrenced
@@ -235,17 +238,17 @@ CREATE TABLE "drive_train" (
     "dt_brand_id" INT REFERENCES "component_brand" ("id")
 );
 
--- CREATE TABLE "build_file" (
---     "id" SERIAL PRIMARY KEY,
---     "user_id" INT REFERENCES "user"("id"),
---     "builder_id" INT REFERENCES "builder"("id"),
---     "bike_type_id" INT REFERENCES "bike_type"("id"),
---     "wheel_size_id" INT REFERENCES "wheel_size"("id"),
---     "tire_size_id" INT REFERENCES "tire_size"("id"),
---     "axle_id" INT REFERENCES "axle_type"("id"),
---     "component" INT REFERENCES "component_brand"("id"),
---     "brake_id" INT REFERENCES "brake_type"("id"),
---     "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
---     "dt_id" INT REFERENCES "drive_train"("id"),
---     "bike_img" TEXT
--- );
+CREATE TABLE "group_set_file"(
+    "id" SERIAL PRIMARY KEY,
+    "brake_id" INT REFERENCES "brake_type"("id"),
+    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
+    "dt_id" INT REFERENCES "drive_train"("id")
+)
+
+CREATE TABLE "build_file" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user"("id"),
+    "builder_id" INT REFERENCES "builder"("id"),
+    "bike_type_id" INT REFERENCES "bike_type"("id"),
+    "bike_img" TEXT
+);
