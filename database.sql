@@ -13,7 +13,6 @@ CREATE TABLE "builder" (
     "build_brand" VARCHAR (100)
 );
 
-
 -- Bike type per builder
 CREATE TABLE "bike_type" (
     "id" SERIAL PRIMARY KEY,
@@ -114,8 +113,10 @@ CREATE TABLE "steel_fork_build" (
 	"notes_sfb" VARCHAR
 );
 
+--  creating files to help organize 
 CREATE TABLE "frame_info_file" (
     "id" SERIAL PRIMARY KEY,
+    "bike_type_id" INT REFERENCES "bike_type"("id"),
     "pfm_id" INT REFERENCES "primary_frame_material"("id"),
     "sfm_id" INT REFERENCES "secondary_frame_material"("id"),
     "pfj_id" INT REFERENCES "primary_frame_joining"("id"),
@@ -142,6 +143,7 @@ CREATE TABLE "wheel_size" (
     "24" BOOLEAN,
     "20" BOOLEAN,
     "other_ws" VARCHAR (20),
+    "notes_ws" VARCHAR (100),
     "location_w_id" INT REFERENCES "placement"("id"),
     "file_id_ws" INT REFERENCES "bike_file"("id")
 );
@@ -152,6 +154,7 @@ CREATE TABLE "tire_size" (
     "diam" INTEGER, 
     "width" INTEGER,
     "other" VARCHAR (25),
+    "notes" VARCHAR (100),
     "location_ts_id" INT REFERENCES "placement"("id"),
     "file_id_ts" INT REFERENCES "bike_file"("id")
 );
@@ -163,6 +166,7 @@ CREATE TABLE "axle_type" (
     "ta" BOOLEAN,
     "track" BOOLEAN,
     "other" VARCHAR (100),
+    "notes" VARCHAR (100),
     "location_at_id" INT REFERENCES "placement"("id"),
     "file_id_at" INT REFERENCES "bike_file"("id")
 );
@@ -213,6 +217,7 @@ CREATE TABLE "brake_type" (
     "none" BOOLEAN,
     "bt_brand_id" INT REFERENCES "component_brand" ("id"),
     "other" VARCHAR (100),
+    "notes_bt" VARCHAR (100),
     "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
 	"location_bt_id" INT REFERENCES "placement"("id"),
     "file_id_bt" INT REFERENCES "bike_file"("id")
@@ -249,6 +254,7 @@ CREATE TABLE "build_file" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INT REFERENCES "user"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
-    "bike_type_id" INT REFERENCES "bike_type"("id"),
+    "frame_info_id" INT REFERENCES "frame_info_file"("id"),
+
     "bike_img" TEXT
 );
