@@ -25,10 +25,16 @@ class FrameType extends Component {
         this.props.history.push('/frame-material');
       }
 
+    bikeInput = (event) => {
+        console.log('bike input')
+        this.setState({
+          : event.target.value,
+        })
+      }
+
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
       }
-
 
     render() {
         return (
