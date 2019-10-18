@@ -38,6 +38,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.road}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Road
                 </Button>
@@ -46,6 +47,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.cyclocross}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Cyclocross
                 </Button>
@@ -54,6 +56,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.gravel}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Gravel
                 </Button>
@@ -62,6 +65,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.moutain}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Moutain
                 </Button>
@@ -70,6 +74,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.city}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     City
                 </Button>
@@ -78,6 +83,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.track}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Track
                 </Button>
@@ -86,6 +92,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.tandem}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Tandem
                 </Button>
@@ -94,6 +101,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.touring}
+                onClick={this.handleChange}
                 style={{ margin: 10 }}>
                     Touring
                 </Button>
@@ -106,8 +114,8 @@ class FrameType extends Component {
                             label="other"
                             variant="outlined"
                             margin="normal"
-                           // value={this.state.brand}
-                            //onChange={this.handleChange}
+                            value={this.state.other}
+                            onChange={this.handleChange}
                         />
                 </FormControl>
                 <Button 
