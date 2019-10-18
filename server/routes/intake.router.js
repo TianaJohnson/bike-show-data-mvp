@@ -9,7 +9,7 @@ router.post('/', (req, res, next) => {
     if (req.isAuthenticated()) {
         const queryText = `INSERT INTO "builder"
                      ("builder_name", 
-                      "brand")
+                      "build_brand")
                       VALUES ($1, $2) RETURNING "id";`;
         pool.query(queryText, [req.body.builder_name,
         req.body.brand])
