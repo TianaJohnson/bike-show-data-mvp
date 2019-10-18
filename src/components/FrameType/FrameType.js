@@ -9,6 +9,11 @@ class FrameType extends Component {
         this.props.history.push('/frame-material');
       }
 
+    handleChange = (evt) => {
+        this.setState({ [evt.target.name]: evt.target.value });
+      }
+
+
     render() {
         return (
             <div>
