@@ -25,9 +25,13 @@ class FrameType extends Component {
         this.props.history.push('/frame-material');
       }
 
-    bikeInput = (evt) => {
+    bikeInput = (e) => {
         console.log('bike input')
-        this.setState({ road: this.state.road === false ? true : false});
+        if( this.state.road === false){
+        this.setState({ 
+            road: true
+        })
+    }
         console.log(' state updated:', this.state.road )
         
       }
