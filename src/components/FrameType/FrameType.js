@@ -37,6 +37,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.road}
                 style={{ margin: 10 }}>
                     Road
                 </Button>
@@ -44,6 +45,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.cyclocross}
                 style={{ margin: 10 }}>
                     Cyclocross
                 </Button>
@@ -51,6 +53,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.gravel}
                 style={{ margin: 10 }}>
                     Gravel
                 </Button>
@@ -58,6 +61,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.moutain}
                 style={{ margin: 10 }}>
                     Moutain
                 </Button>
@@ -65,6 +69,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.city}
                 style={{ margin: 10 }}>
                     City
                 </Button>
@@ -72,6 +77,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.track}
                 style={{ margin: 10 }}>
                     Track
                 </Button>
@@ -79,6 +85,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.tandem}
                 style={{ margin: 10 }}>
                     Tandem
                 </Button>
@@ -86,6 +93,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
+                value={this.state.touring}
                 style={{ margin: 10 }}>
                     Touring
                 </Button>
