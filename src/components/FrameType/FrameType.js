@@ -27,9 +27,10 @@ class FrameType extends Component {
 
     bikeInput = (evt) => {
         console.log('bike input')
-        if( this.state === false)
-        this.setState({ [evt.target.value]: true })
-        console.log(' state updated:', this.state )
+        if( this.state.road === false){
+        this.setState({ road: true,})
+        console.log(' state updated:', this.state.road )
+        }
       }
 
     handleChange = (evt) => {
