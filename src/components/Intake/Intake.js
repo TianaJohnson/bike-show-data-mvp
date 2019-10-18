@@ -48,16 +48,6 @@ class Intake extends Component {
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
       }
-      
-    //potential handle change if it works properly
-    // handleChange = (key) => (event) => {
-    //     const action = {
-    //         type: 'SET_BUILDER',
-    //         payload: { key: key, value: event.target.value },
-    //     };
-    //     console.log('sending to build saga')
-    //     this.props.dispatch(action);
-    // }
 
 
     render() {
