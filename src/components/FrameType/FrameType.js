@@ -25,11 +25,11 @@ class FrameType extends Component {
         this.props.history.push('/frame-material');
       }
 
-    bikeInput = (event) => {
+    bikeInput = (evt) => {
         console.log('bike input')
-        this.setState({
-          : event.target.value,
-        })
+        if( this.state === false)
+        this.setState({ [evt.target.value]: true })
+        console.log(' state updated:', this.state )
       }
 
     handleChange = (evt) => {
@@ -44,7 +44,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.road}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Road
                 </Button>
@@ -53,7 +53,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.cyclocross}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Cyclocross
                 </Button>
@@ -62,7 +62,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.gravel}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Gravel
                 </Button>
@@ -71,7 +71,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.moutain}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Moutain
                 </Button>
@@ -80,7 +80,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.city}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     City
                 </Button>
@@ -89,7 +89,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.track}
-                onClick={this.handleChange}
+                onClick={this.hbikeInput}
                 style={{ margin: 10 }}>
                     Track
                 </Button>
@@ -98,7 +98,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.tandem}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Tandem
                 </Button>
@@ -107,7 +107,7 @@ class FrameType extends Component {
                 color="secondary"
                 size="large"
                 value={this.state.touring}
-                onClick={this.handleChange}
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Touring
                 </Button>
