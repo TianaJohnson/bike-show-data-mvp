@@ -27,7 +27,6 @@ class FrameType extends Component {
 
     bikeInput = (evt) => {
         console.log('bike input')
-        evt.preventDefault() 
         if( this.state[evt.target.name] !== true){
             evt.preventDefault();
         this.setState({ 
