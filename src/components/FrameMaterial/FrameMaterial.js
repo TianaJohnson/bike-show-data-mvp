@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/Textfield';
+import Secondary from './SecondaryFrameMaterial';
 import './FrameMaterial.css';
 
 class FrameMaterial extends Component {
@@ -94,7 +97,15 @@ class FrameMaterial extends Component {
                 color="primary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Next
+                    Secondary Frame Material
+                </Button>
+                
+                <Button 
+                variant="contained"
+                color="primary"
+                size="large"
+                style={{ margin: 10 }}>
+                    Frame Joining 
                 </Button>
             </div>
         )

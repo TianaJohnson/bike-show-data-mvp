@@ -3,39 +3,17 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
-import './FrameType.css';
+import './FrameMaterial.css';
 
-class FrameType extends Component {
+class SecondaryFrameMaterial extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          road: false ,
-          cyclocross: false,
-          gravel: false,
-          moutain: false,
-          city: false,
-          track: false,
-          tandem: false,
-          touring: false,
-          other: ''       }
-      }
-
-    frameMaterial = () => {
-        this.props.history.push('/frame-material');
-      }
-
-    bikeInput = (evt) => {
-        console.log('bike input')
-        if( this.state[evt.target.name] !== true){
-            evt.preventDefault();
-        this.setState({ 
-            road: true
-        })
-    }
-        console.log(' state updated:', this.state )
-        
-      }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       : '',
+    //       : ''
+    //     }
+    //   }
 
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
@@ -44,100 +22,82 @@ class FrameType extends Component {
     render() {
         return (
             <div>
-                <Button 
+                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.road}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Road
+                    Steel
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.cyclocross}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Cyclocross
+                    Stainless Steel
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.gravel}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Gravel
+                    Titanium
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.moutain}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Moutain
+                    Magnesium
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.city}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    City
+                    Wood
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.track}
-                onClick={this.hbikeInput}
                 style={{ margin: 10 }}>
-                    Track
+                    Bamboo
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.tandem}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Tandem
+                    Carbon
                 </Button>
                 <Button 
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.touring}
-                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
-                    Touring
+                    Aluminum
                 </Button>
                 <FormControl>
                         <TextField
                             style={{ margin: 10 }}
                             name="other"
-                            className="otherBikeType"
+                            className="otherPrimeBuildMaterial"
                             id="other"
                             label="other"
                             variant="outlined"
                             margin="normal"
-                            value={this.state.other}
-                            onChange={this.handleChange}
+                            // value={this.state.other}
+                            // onChange={this.handleChange}
                         />
                 </FormControl>
                 <Button 
                 variant="contained"
                 color="primary"
                 size="large"
-                onClick={this.frameMaterial}
                 style={{ margin: 10 }}>
-                    Frame Material
+                    Next
                 </Button>
-                
             </div>
         )
     }
@@ -146,4 +106,4 @@ const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }
 
-export default connect(mapStateToProps)(FrameType);
+export default connect(mapStateToProps)(SecondaryFrameMaterial);
