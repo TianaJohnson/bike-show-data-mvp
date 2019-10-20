@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/Textfield';
-import Secondary from './SecondaryFrameMaterial';
+// import Secondary from './SecondaryFrameMaterial';
 import './FrameMaterial.css';
 
 class FrameMaterial extends Component {
