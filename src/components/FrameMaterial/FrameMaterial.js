@@ -76,13 +76,19 @@ class FrameMaterial extends Component {
                 style={{ margin: 10 }}>
                     Aluminum
                 </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Other
-                </Button>
+                <FormControl>
+                        <TextField
+                            style={{ margin: 10 }}
+                            name="other"
+                            className="otherPrimeBuildMaterial"
+                            id="other"
+                            label="other"
+                            variant="outlined"
+                            margin="normal"
+                            // value={this.state.other}
+                            // onChange={this.handleChange}
+                        />
+                </FormControl>
                 <Button 
                 variant="contained"
                 color="primary"
