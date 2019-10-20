@@ -22,82 +22,89 @@ class SecondaryFrameMaterial extends Component {
     render() {
         return (
             <div>
-                 <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Steel
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Stainless Steel
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Titanium
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Magnesium
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Wood
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Bamboo
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Carbon
-                </Button>
-                <Button 
-                variant="contained"
-                color="secondary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Aluminum
-                </Button>
-                <FormControl>
-                        <TextField
-                            style={{ margin: 10 }}
-                            name="other"
-                            className="otherPrimeBuildMaterial"
-                            id="other"
-                            label="other"
-                            variant="outlined"
-                            margin="normal"
-                            // value={this.state.other}
-                            // onChange={this.handleChange}
-                        />
-                </FormControl>
-                <Button 
-                variant="contained"
-                color="primary"
-                size="large"
-                style={{ margin: 10 }}>
-                    Next
-                </Button>
+            <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Welded
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Brass Fillet
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Lugged
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Carbon Layup
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Bonded
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Silver Fillet
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Carbon
+           </Button>
+           <Button 
+           variant="contained"
+           color="secondary"
+           size="large"
+           style={{ margin: 10 }}>
+               Mechanical
+           </Button>
+           <FormControl>
+                   <TextField
+                       style={{ margin: 10 }}
+                       name="other"
+                       className="otherPrimeBuildMaterial"
+                       id="other"
+                       label="other"
+                       variant="outlined"
+                       margin="normal"
+                       // value={this.state.other}
+                       // onChange={this.handleChange}
+                   />
+           </FormControl>
+           <Button 
+           variant="contained"
+           color="primary"
+           size="large"
+           style={{ margin: 10 }}>
+               Secondary Frame Joining
+           </Button>
+           <Button 
+           variant="contained"
+           color="primary"
+           size="large"
+           style={{ margin: 10 }}>
+               Next
+           </Button>
             </div>
         )
     }
