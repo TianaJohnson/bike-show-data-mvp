@@ -23,6 +23,7 @@ class FrameMaterial extends Component {
     render() {
         return (
             <div>
+                <h1>Primary Frame Material</h1>
                  <Button 
                 variant="contained"
                 color="secondary"
@@ -92,6 +93,22 @@ class FrameMaterial extends Component {
                             // onChange={this.handleChange}
                         />
                 </FormControl>
+                <FormControl>
+                        <TextField
+                            style={{ margin: 10 }}
+                            name="other"
+                            className="otherPrimeBuildMaterial"
+                            id="outline-notes"
+                            label="notes"
+                            variant="outlined"
+                            margin="normal"
+                            multiline rows="8"
+                            fullWidth                          
+                            // value={this.state.other}
+                            // onChange={this.handleChange}
+                        />
+                </FormControl>
+                <br/>
                 <Button 
                 variant="contained"
                 color="primary"
