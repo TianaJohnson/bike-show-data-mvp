@@ -22,6 +22,7 @@ class PrimaryFrameJoining extends Component {
     render() {
         return (
             <div>
+                Primary Frame Joining
                  <Button 
                 variant="contained"
                 color="secondary"
