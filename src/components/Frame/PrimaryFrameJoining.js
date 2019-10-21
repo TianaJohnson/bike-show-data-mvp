@@ -22,7 +22,7 @@ class PrimaryFrameJoining extends Component {
     render() {
         return (
             <div>
-                Primary Frame Joining
+                <h1 className="title-mail">Primary Frame Joining</h1>
                  <Button 
                 variant="contained"
                 color="secondary"

@@ -23,7 +23,7 @@ class FrameMaterial extends Component {
     render() {
         return (
             <div>
-                <h1>Primary Frame Material</h1>
+                <h1 className="title-mail">Primary Frame Material</h1>
                  <Button 
                 variant="contained"
                 color="secondary"

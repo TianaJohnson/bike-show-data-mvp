@@ -5,7 +5,9 @@ class SteelForkBuild extends Component {
 
     render() {
         return (
-            <div></div>
+            <div>
+                <h1 className="title-mail">Fork Build</h1>
+            </div>
         )
     }
 }

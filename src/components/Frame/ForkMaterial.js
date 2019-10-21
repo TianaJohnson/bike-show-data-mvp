@@ -10,7 +10,7 @@ class ForkMaterial extends Component {
     render() {
         return (
             <div>
-                Fork Build
+                <h1 className="title-mail">Fork Build</h1>
                 <Button 
            variant="contained"
            color="secondary"
@@ -65,7 +65,7 @@ class ForkMaterial extends Component {
            color="primary"
            size="large"
            style={{ margin: 10 }}>
-               
+
            </Button>
            <Button 
            variant="contained"

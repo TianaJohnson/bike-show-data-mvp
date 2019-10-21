@@ -22,6 +22,7 @@ class SecondaryFrameMaterial extends Component {
     render() {
         return (
             <div>
+                <h1 className="title-mail">Secondary Frame Material</h1>
             <Button 
            variant="contained"
            color="secondary"
