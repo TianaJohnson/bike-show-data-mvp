@@ -84,10 +84,12 @@ class PrimaryFrameJoining extends Component {
                             style={{ margin: 10 }}
                             name="other"
                             className="otherPrimeBuildMaterial"
-                            id="other"
-                            label="other"
+                            id="outline-notes"
+                            label="notes"
                             variant="outlined"
                             margin="normal"
+                            multiline rows="8"
+                            fullWidth
                             // value={this.state.other}
                             // onChange={this.handleChange}
                         />
@@ -104,7 +106,7 @@ class PrimaryFrameJoining extends Component {
                 color="primary"
                 size="large"
                 style={{ margin: 10 }}>
-                    Next
+                    Fork Build
                 </Button>
             </div>
         )

@@ -60,19 +60,19 @@ class ForkMaterial extends Component {
                        // onChange={this.handleChange}
                    />
            </FormControl>
+           {/* <Button 
+           variant="contained"
+           color="primary"
+           size="large"
+           style={{ margin: 10 }}>
+            Steel Fork Build
+           </Button> */}
            <Button 
            variant="contained"
            color="primary"
            size="large"
            style={{ margin: 10 }}>
-
-           </Button>
-           <Button 
-           variant="contained"
-           color="primary"
-           size="large"
-           style={{ margin: 10 }}>
-               Next
+               Wheels and such
            </Button>
             </div>
         )

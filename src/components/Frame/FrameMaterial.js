@@ -102,8 +102,9 @@ class FrameMaterial extends Component {
                             label="notes"
                             variant="outlined"
                             margin="normal"
+                            fullWidth 
                             multiline rows="8"
-                            fullWidth                          
+                                                     
                             // value={this.state.other}
                             // onChange={this.handleChange}
                         />

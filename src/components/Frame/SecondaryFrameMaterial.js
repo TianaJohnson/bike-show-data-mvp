@@ -83,7 +83,7 @@ class SecondaryFrameMaterial extends Component {
                    <TextField
                        style={{ margin: 10 }}
                        name="other"
-                       className="otherPrimeBuildMaterial"
+                       className="otherSecondaryBuildMaterial"
                        id="other"
                        label="other"
                        variant="outlined"
@@ -97,14 +97,7 @@ class SecondaryFrameMaterial extends Component {
            color="primary"
            size="large"
            style={{ margin: 10 }}>
-               Secondary Frame Joining
-           </Button>
-           <Button 
-           variant="contained"
-           color="primary"
-           size="large"
-           style={{ margin: 10 }}>
-               Next
+               Frame Joining
            </Button>
             </div>
         )
