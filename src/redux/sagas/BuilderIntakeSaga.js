@@ -4,7 +4,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 //post saga = send info to server
 //Create
 function* addBuiler(action) {
-    try { 
+    try {
       yield axios.post('/api/intake', action.payload);
       yield alert('builder added.')
       yield put({ type: 'FETCH_BUILDER' });
