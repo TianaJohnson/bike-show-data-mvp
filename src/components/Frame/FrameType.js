@@ -10,126 +10,118 @@ class FrameType extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          road: false ,
-          cyclocross: false,
-          gravel: false,
-          moutain: false,
-          city: false,
-          track: false,
-          tandem: false,
-          touring: false,
-          other: ''       }
+        //   road: false ,
+        //   cyclocross: false,
+        //   gravel: false,
+        //   moutain: false,
+        //   city: false,
+        //   track: false,
+        //   tandem: false,
+        //   touring: false,
+        //   other: ''
+        frameType: '',
+        }
       }
 
     frameMaterial = () => {
-        this.props.history.push('/frame-material');
-      }
+    this.props.history.push('/frame-material');
+    }
 
     bikeInput = (evt) => {
-        console.log('bike input')
-        if( this.state[evt.target.name] !== true){
-            evt.preventDefault();
-        this.setState({ 
-            road: true
-        })
-    }
-        console.log(' state updated:', this.state )
-        
-      }
-
-    handleChange = (evt) => {
-        this.setState({ [evt.target.name]: evt.target.value });
-      }
+        console.log('bike input');
+        this.setState({
+            frameType: evt.target.value
+        });
+    };
 
     render() {
         return (
             <div>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.road}
+                value='road'
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Road
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.cyclocross}
+                value='cyclocross'
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Cyclocross
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.gravel}
+                value="gravel"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Gravel
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.moutain}
+                value="mountain"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Moutain
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.city}
+                value="city"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     City
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.track}
-                onClick={this.hbikeInput}
+                value="track"
+                onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Track
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.tandem}
+                value="tandem"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Tandem
                 </Button>
-                <Button 
+                <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                value={this.state.touring}
+                value="touring"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Touring
                 </Button>
                 <FormControl>
-                        <TextField
-                            style={{ margin: 10 }}
-                            name="other"
-                            className="otherBikeType"
-                            id="other"
-                            label="other"
-                            variant="outlined"
-                            margin="normal"
-                            value={this.state.other}
-                            onChange={this.handleChange}
-                        />
+                <TextField
+                style={{ margin: 10 }}
+                name="other"
+                className="otherBikeType"
+                id="other"
+                label="other"
+                variant="outlined"
+                margin="normal"
+                onChange={this.bikeInput}
+                />
                 </FormControl>
-                <Button 
+                <Button
                 variant="contained"
                 color="primary"
                 size="large"
@@ -137,7 +129,7 @@ class FrameType extends Component {
                 style={{ margin: 10 }}>
                     Frame Material
                 </Button>
-                
+
             </div>
         )
     }
