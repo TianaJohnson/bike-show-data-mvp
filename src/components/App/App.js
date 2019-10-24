@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import UserPage from '../UserPage/UserPage';
 import Intake from '../Intake/Intake';
-import Frame from '../FrameType/FrameType';
+import Frame from '../Frame/FrameType';
 import FrameMaterial from '../Frame/FrameMaterial';
 
 import './App.css';
