@@ -10,15 +10,7 @@ class FrameType extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        //   road: false ,
-        //   cyclocross: false,
-        //   gravel: false,
-        //   moutain: false,
-        //   city: false,
-        //   track: false,
-        //   tandem: false,
-        //   touring: false,
-        //   other: ''
+
         frameType: '',
         }
       }
