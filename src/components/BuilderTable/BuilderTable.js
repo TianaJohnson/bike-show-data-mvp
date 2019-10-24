@@ -9,6 +9,7 @@ import Card from '@material-ui/core/Card';
 // import Button from '@material-ui/core/Button';
 import BuildRow from './BuilderTableRows';
 import { connect } from 'react-redux';
+import './BuilderTable.css';
 
 class BuilderTable extends Component {
 

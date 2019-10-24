@@ -23,6 +23,7 @@ class FrameType extends Component {
         this.setState({
             frameType: evt.target.value
         });
+        console.log('state set', this.state)
     };
 
     render() {
@@ -41,7 +42,7 @@ class FrameType extends Component {
                 variant="contained"
                 color="secondary"
                 size="large"
-                value='cyclocross'
+                value="cyclocross"
                 onClick={this.bikeInput}
                 style={{ margin: 10 }}>
                     Cyclocross
