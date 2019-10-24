@@ -10,7 +10,6 @@ class FrameType extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         frameType: '',
         }
       }
