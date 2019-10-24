@@ -21,7 +21,7 @@ class BuilderTable extends Component {
     render() {
         return (
             <div>
-                <Card calssName="builder_table" >
+                <Card className="builder_table" >
                     <Paper>
                         <Table className="admin_table">
                             <TableHead>

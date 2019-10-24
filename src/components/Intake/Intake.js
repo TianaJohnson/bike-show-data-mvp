@@ -22,10 +22,10 @@ class Intake extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          builder_name: '',
-          brand: ''
+            builder_name: '',
+            brand: ''
         }
-      }
+    }
 
     // componentDidMount() {
     // }
@@ -47,11 +47,11 @@ class Intake extends Component {
 
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
-      }
+    }
 
 
     render() {
-       // const builder = this.props.reduxStore.builder.builderIntakeReducer;
+        // const builder = this.props.reduxStore.builder.builderIntakeReducer;
         return (
             <div className="intake-main">
                 {/* <TestIntake/> */}
