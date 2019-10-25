@@ -61,7 +61,7 @@ class App extends Component {
             {/* <ProtectedRoute
               exact
               path="/file/:id"
-              component={CustomerToolBar}
+              component={File}
             /> */}
             <ProtectedRoute
               exact

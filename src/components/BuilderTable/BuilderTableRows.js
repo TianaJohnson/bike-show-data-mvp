@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 class BuilderTableRow extends Component {
 
     buildFile = () => {
-        this.props.history.push(`/file/${this.props.client.id}`);
+        this.props.history.push(`/file/${this.props.builder.id}`);
     }
 
     render() {
