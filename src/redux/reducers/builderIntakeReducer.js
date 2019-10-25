@@ -17,7 +17,7 @@ const builderIntakeReducer = (state = [] , action) => {
 
     export default combineReducers({
       builderIntakeReducer,
-  
+
   })
 
 export {builderIntakeReducer};

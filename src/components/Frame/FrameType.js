@@ -23,7 +23,7 @@ class FrameType extends Component {
         this.setState({
             frameType: evt.target.value
         });
-        console.log('state set', this.state)
+        console.log('state set', this.state.value)
     };
 
     render() {
@@ -121,6 +121,7 @@ class FrameType extends Component {
                 style={{ margin: 10 }}>
                     Frame Material
                 </Button>
+                <h1>Frame Type:{this.state}</h1>
 
             </div>
         )
