@@ -6,11 +6,7 @@ import Tab from '@material-ui/core/Tab'
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import ProjectPage from './../ProjectPage/ProjectPage';
-import FitDataPage from './../FitDataPage/FitDataPage';
-// import BuildStatusPage from './../BuildStatusPage/BuildStatusPage';
-import CustomerNotesPage from './../CustomerNotesPage/CustomerNotesPage';
-// import CustomerContactInfo from './../CustomerContactInfo/CustomerContactInfo';
+
 
 function TabContainer(props) {
     return (
@@ -48,18 +44,18 @@ class CustomerToolBar extends Component {
                         onChange={this.handleChange}
                         centered
                     >
-                        <Tab label="Project" />
-                        <Tab label="Fit Data" />
-                        <Tab label="Build Status" />
+                        <Tab label="Frame" />
+                        <Tab label="Wheels/Tires/Axles" />
+                        <Tab label="Brakes & Drivetrain" />
                         {/* <Tab label="" /> */}
                         {/* <Tab label="Contact Information" /> */}
                     </Tabs>
                 </AppBar>
-                {value === 0 && <ProjectPage match={this.props.match} history={this.props.history}/>} 
-                {value === 1 && <FitDataPage match={this.props.match} history={this.props.history}/>}
+                {/* {value === 0 && <ProjectPage match={this.props.match} history={this.props.history}/>} 
+                {value === 1 && <FitDataPage match={this.props.match} history={this.props.history}/>} */}
                 {/* {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>} */}
-                {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
-                {/* {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
+                {/* {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
+                {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
             </Paper>
         )
     }

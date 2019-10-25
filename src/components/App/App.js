@@ -58,11 +58,11 @@ class App extends Component {
               path="/intake"
               component={Intake}
             />
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact
               path="/file/:id"
               component={File}
-            /> */}
+            />
             <ProtectedRoute
               exact
               path="/frame"

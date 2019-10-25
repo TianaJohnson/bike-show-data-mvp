@@ -42,7 +42,7 @@ class Intake extends Component {
             builder_name: '',
             brand: ''
         })
-        this.props.history.push('/frame');
+        this.props.history.push(`/file`);
     }
 
     handleChange = (evt) => {

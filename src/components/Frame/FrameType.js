@@ -14,9 +14,9 @@ class FrameType extends Component {
         }
       }
 
-    frameMaterial = () => {
-    this.props.history.push('/frame-material');
-    }
+    // frameMaterial = () => {
+    // this.props.history.push('/frame-material');
+    // }
 
     bikeInput = (evt) => {
         console.log('bike input');
