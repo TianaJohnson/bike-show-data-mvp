@@ -8,8 +8,8 @@ router.get('/:id', (req, res) => {
     console.log('req.params: file get', req.user.id);
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user.id);
-        pool.query(`SELECT * FROM "File"
-                    JOIN "builder" ON "bike_file"."builder_id" = "customer_info"."id"
+        pool.query(`SELECT * FROM "build_file"
+                    JOIN "builder" ON "bike_file"."builder_id" = "builder"."id"
                     WHERE "bike_file"."builder_id" = $1;`, [req.params.id])
             .then(results => {
                 console.log(results.rows[0])

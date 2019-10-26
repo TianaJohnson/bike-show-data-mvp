@@ -36,11 +36,11 @@ class CustomerToolBar extends Component {
 
     render() {
         const { value } = this.state;
-        const project = this.props.reduxStore.file.bikeFileReducer
+        const project = this.props.reduxStore.builder.builderIntakeReducer
 // tool bar (tabs) to navigate through customer file
         return (
             <Paper square>
-            
+            <h2>{project.builder_id}</h2>
                 <AppBar position="static">
                     <Tabs
                         value={value}
