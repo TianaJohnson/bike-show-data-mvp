@@ -23,7 +23,7 @@ class Intake extends Component {
         super(props);
         this.state = {
             builder_name: '',
-            brand: ''
+            build_brand: ''
         }
     }
 
@@ -40,7 +40,7 @@ class Intake extends Component {
         this.props.dispatch(action);
         this.setState({
             builder_name: '',
-            brand: ''
+            build_brand: ''
         })
         this.props.history.push(`/file/${this.props.builders.id}`);
     }
@@ -79,7 +79,7 @@ class Intake extends Component {
                             label="brand"
                             variant="outlined"
                             margin="normal"
-                            value={this.state.brand}
+                            value={this.state.build_brand}
                             onChange={this.handleChange}
                         />
                     </FormControl>
