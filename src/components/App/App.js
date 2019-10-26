@@ -17,7 +17,7 @@ import UserPage from '../UserPage/UserPage';
 import Intake from '../Intake/Intake';
 import Frame from '../Frame/FrameType';
 import FrameMaterial from '../Frame/FrameMaterial';
-import File from '../Frame/BuildFile';
+import File from '../File/BuildFileNav';
 
 import './App.css';
 
