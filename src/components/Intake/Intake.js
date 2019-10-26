@@ -27,8 +27,10 @@ class Intake extends Component {
         }
     }
 
-    // componentDidMount() {
-    // }
+    // should pull priject file up
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_FILE', payload: { id: this.props.match.params.id } });    
+    }
 
     //Send to saga to create a builder in the data base
     buildBike = (event) => {

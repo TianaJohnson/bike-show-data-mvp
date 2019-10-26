@@ -14,8 +14,11 @@ import './BuilderTable.css';
 class BuilderTable extends Component {
 
     componentDidMount() {
+    //    // const id = this.props.match.params.id;
         this.props.dispatch({ type: 'FETCH_BUILDER'}); 
-        console.log(this.props.builder)
+        console.log(this.props.builder);
+    //     // const action = this.props.dispatch({ type: 'FETCH_FILE', payload: id});
+    //     // this.props.dispatch(action);
         
     }
 
@@ -36,10 +39,13 @@ class BuilderTable extends Component {
                             </TableHead>
                             <TableBody>
                                 {/* this is still a problem */}
-                                {this.props.builder.map((builders, i) => {
+                                {this.props.builder.map(builders =>
+           <BuildRow key={builders.id} history={this.props.history} builders={builders}/>
+         )}
+                                {/* {this.props.builder.map((builders, i) => {
                                     return (<BuildRow key={i}   
                                         builders={builders} history={this.props.history}/>);
-                                })}
+                                })} */}
                             </TableBody>
                         </Table>
                     </Paper>
