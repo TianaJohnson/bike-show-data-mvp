@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import Bike from './../Frame/FrameType';
+import Wheels from './../WTAfile/Wheels';
 
 
 function TabContainer(props) {
@@ -35,6 +36,7 @@ class CustomerToolBar extends Component {
 
     render() {
         const { value } = this.state;
+        const project = this.props.reduxStore.file.bikeFileReducer
 // tool bar (tabs) to navigate through customer file
         return (
             <Paper square>
@@ -52,8 +54,8 @@ class CustomerToolBar extends Component {
                         {/* <Tab label="Contact Information" /> */}
                     </Tabs>
                 </AppBar>
-                {value === 0 && <Bike match={this.props.match} history={this.props.history}/>} 
-                {/* {value === 1 && <FitDataPage match={this.props.match} history={this.props.history}/>} */} */}
+                {/* /* {value === 0 && <Bike match={this.props.match} history={this.props.history}/>}  */}
+                {/* {value === 1 && <Wheels match={this.props.match} history={this.props.history}/>} */} 
                 {/* {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>} */}
                 {/* {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
                 {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}

@@ -15,8 +15,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import UserPage from '../UserPage/UserPage';
 import Intake from '../Intake/Intake';
-import Frame from '../Frame/FrameType';
-import FrameMaterial from '../Frame/FrameMaterial';
+// import Frame from '../Frame/FrameType';
+// import FrameMaterial from '../Frame/FrameMaterial';
 import File from '../File/BuildFileNav';
 
 import './App.css';
@@ -63,7 +63,7 @@ class App extends Component {
               path="/file/:id"
               component={File}
             />
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/frame"
               component={Frame}
@@ -72,7 +72,7 @@ class App extends Component {
               exact
               path="/frame-material"
               component={FrameMaterial}
-            />
+            /> */}
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

@@ -38,6 +38,6 @@ console.log('state:', state)
 };
 
 export default combineReducers({
-fileReducer,
+bikeFileReducer,
 
 })
