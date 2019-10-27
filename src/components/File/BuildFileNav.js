@@ -6,8 +6,8 @@ import Tab from '@material-ui/core/Tab'
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import Bike from './../Frame/FrameType';
-import Wheels from './../WTAfile/Wheels';
+// import Bike from './../Frame/FrameType';
+// import Wheels from './../WTAfile/Wheels';
 
 
 function TabContainer(props) {
@@ -39,8 +39,10 @@ class CustomerToolBar extends Component {
         const project = this.props.reduxStore.builder.builderIntakeReducer
 // tool bar (tabs) to navigate through customer file
         return (
+            <div>
             <Paper square>
-            <h2>{project.builder_id}</h2>
+                {/* (JSON.stringify({project})) */}
+
                 <AppBar position="static">
                     <Tabs
                         value={value}
@@ -54,13 +56,16 @@ class CustomerToolBar extends Component {
                         {/* <Tab label="Contact Information" /> */}
                     </Tabs>
                 </AppBar>
-                {/* /* {value === 0 && <Bike match={this.props.match} history={this.props.history}/>}  */}
+                {/* {value === 0 && <Bike match={this.props.match} history={this.props.history}/>}  */}
                 {/* {value === 1 && <Wheels match={this.props.match} history={this.props.history}/>} */} 
                 {/* {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>} */}
                 {/* {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
                 {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
             </Paper>
-        
+            
+         <h2>Name:{project}</h2>
+          {JSON.stringify(this.props.reduxStore.file.bikeFileReducer)}
+         </div>
         )
     }
 
