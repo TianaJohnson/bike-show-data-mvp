@@ -9,13 +9,14 @@ class BuilderTableRow extends Component {
 
 
     buildFile = () => {
-        this.props.history.push(`/file/${this.props.builder.id}`);
+        this.props.history.push(`file/${this.props.builders.id}`);
     }
 
     render() {
         return (
             
                 <TableRow>
+                    
                 <TableCell>{this.props.builders.builder_name}</TableCell>
                 <TableCell>{this.props.builders.build_brand}</TableCell>
                 <TableCell><Button variant="contained"
