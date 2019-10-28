@@ -15,8 +15,6 @@ class BuilderTableRow extends Component {
     render() {
         return (
             
-            <div>
-                {console.log('ttttttt', this.props.builders)}
                 <TableRow>
                 <TableCell>{this.props.builders.builder_name}</TableCell>
                 <TableCell>{this.props.builders.build_brand}</TableCell>
@@ -28,7 +26,7 @@ class BuilderTableRow extends Component {
                             </Button>
                 </TableCell>
             </TableRow>
-            </div>
+            
         )
     }
 }
