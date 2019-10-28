@@ -8,9 +8,9 @@ class BuilderTableRow extends Component {
 
 
 
-    // buildFile = () => {
-    //     this.props.history.push(`/file/${this.props.builder.id}`);
-    // }
+    buildFile = () => {
+        this.props.history.push(`/file/${this.props.builder.id}`);
+    }
 
     render() {
         return (

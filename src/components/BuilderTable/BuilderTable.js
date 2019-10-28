@@ -35,7 +35,7 @@ class BuilderTable extends Component {
                 <Card className="builder_table" >
                 <div>
                 <h1 id="welcome">
-          {/* <UserHeader match={this.props.match} history={this.props.history} /> */}
+          <UserHeader match={this.props.match} history={this.props.history} />
         </h1>
 
         <br />
