@@ -18,6 +18,7 @@ import Intake from '../Intake/Intake';
 // import Frame from '../Frame/FrameType';
 // import FrameMaterial from '../Frame/FrameMaterial';
 import File from '../File/BuildFileNav';
+import BuildTable from '../BuilderTable/BuilderTable';
 
 import './App.css';
 
@@ -49,7 +50,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={BuildTable}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
