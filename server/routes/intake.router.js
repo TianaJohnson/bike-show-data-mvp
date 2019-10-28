@@ -36,7 +36,7 @@ router.post('/', (req, res, next) => {
     }
 });
 
-router.get('/builder', (req, res) => {
+router.get('/', (req, res) => {
     console.log('in GET ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);

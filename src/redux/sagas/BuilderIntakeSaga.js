@@ -3,7 +3,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 
 //post saga = send info to server
 //Create
-function* addBuiler(action) {
+function* addBuilder(action) {
     try {
       yield axios.post('/api/intake', action.payload);
       yield alert('builder added.')
@@ -14,11 +14,9 @@ function* addBuiler(action) {
     }
   }
 
-    //fetch saga = works with builderIntakeReducer
-  //read
   function* fetchBuilder(action) {
     try{
-    const responseFromServer = yield axios.get('/api/intake/builder');
+    const responseFromServer = yield axios.get('/api/intake');
     yield put({ type: 'SET_BUILDER', payload: responseFromServer.data});
     console.log('response from server is:',responseFromServer.data)
   } catch (error) {
@@ -28,7 +26,7 @@ function* addBuiler(action) {
 }
 
 function* builderIntakeSaga() {
-    yield takeLatest('ADD_BUILDER', addBuiler);
+    yield takeLatest('ADD_BUILDER', addBuilder);
     yield takeLatest('FETCH_BUILDER', fetchBuilder);
 }
 

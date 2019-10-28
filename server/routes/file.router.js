@@ -9,14 +9,14 @@ router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user.id);
         pool.query(`SELECT * FROM "build_file"
-                    JOIN "builder" ON "bike_file"."builder_id" = "builder"."id"
-                    WHERE "bike_file"."builder_id" = $1;`, [req.params.id])
+                    JOIN "builder" ON "build_file"."builder_id" = "builder"."id"
+                    WHERE "build_file"."builder_id" = $1;`, [req.params.id])
             .then(results => {
                 console.log(results.rows[0])
                 res.send(results.rows[0])
             })
             .catch(error => {
-                console.log('Error making SELECT for project database:', error);
+                console.log('Error making SELECT for build file database:', error);
                 res.sendStatus(500);
             });
     } else {
