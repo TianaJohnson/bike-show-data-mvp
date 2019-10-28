@@ -44,7 +44,7 @@ class Intake extends Component {
             builder_name: '',
             build_brand: ''
         })
-        this.props.history.push(`/file/${this.props.builder.id}`);
+        //this.props.history.push(`/file/${this.props.builder.id}`);
     }
 
     handleChange = (evt) => {
