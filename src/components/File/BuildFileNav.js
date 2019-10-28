@@ -64,7 +64,7 @@ class CustomerToolBar extends Component {
             </Paper>
             
          <h2>Name:{project}</h2>
-          {JSON.stringify(this.props.reduxStore.file.bikeFileReducer)}
+          {JSON.stringify(this.props.reduxStore.builder)}
          </div>
         )
     }
