@@ -4,7 +4,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 function* addFile(action) {
     console.log('project post saga');
     try {
-        yield axios.put(`/file/${action.payload.id}`, action.payload);
+        yield axios.put(`/api/file/${action.payload.id}`, action.payload);
         // yield alert('Project added.');
         // yield put({ type: 'FETCH_PROJECT', payload: action.payload});
     }catch (error) {
@@ -15,7 +15,7 @@ function* fetchFile(action) {
     console.log('get bike file server fetchFile');
     console.log('action:')
     try{
-    const responseFromServer = yield axios.get(`/file/${action.payload.id}`);
+    const responseFromServer = yield axios.get(`/api/file/${action.payload.id}`);
     yield put({ type: 'SET_FILE', payload: responseFromServer.data});
     console.log('response from bike file saga server is:',responseFromServer.data);
   } catch (error) {

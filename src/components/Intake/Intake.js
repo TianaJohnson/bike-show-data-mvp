@@ -44,7 +44,7 @@ class Intake extends Component {
             builder_name: '',
             build_brand: ''
         })
-        this.props.history.push(`/file/${this.props.builders.id}`);
+        this.props.history.push(`/file/${this.props.builder.id}`);
     }
 
     handleChange = (evt) => {
@@ -64,7 +64,7 @@ class Intake extends Component {
                             style={{ margin: 10 }}
                             className="builderInput"
                             id="builder_name"
-                            label="builder"
+                            label="Builders Name"
                             name="builder_name"
                             variant="outlined"
                             margin="normal"
@@ -73,12 +73,12 @@ class Intake extends Component {
                         />
                     </FormControl>
                     <FormControl>
-                        <TextField
+                    <TextField
                             style={{ margin: 10 }}
-                            name="brand"
-                            className="brandInput"
-                            id="brand"
-                            label="brand"
+                            className="builderInput"
+                            id="build_brand"
+                            label="Brand"
+                            name="build_brand"
                             variant="outlined"
                             margin="normal"
                             value={this.state.build_brand}
