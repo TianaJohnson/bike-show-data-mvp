@@ -33,7 +33,7 @@ class CustomerToolBar extends Component {
     componentDidMount() {
         
         this.props.dispatch({ type: 'FETCH_FILE', payload: { id: this.props.match.params.id } });
-        
+        this.props.dispatch({ type: 'FETCH_BUILDER', payload: { id: this.props.match.params.id } });
     }
 
     handleChange = (event, value) => {
@@ -43,6 +43,7 @@ class CustomerToolBar extends Component {
     render() {
         const { value } = this.state;
         const project = this.props.reduxStore.file.bikeFileReducer;
+        const builder = this.props.reduxStore.builder.builderIntakeReducer;
 // tool bar (tabs) to navigate through customer file
         return (
             <div>
@@ -71,6 +72,7 @@ class CustomerToolBar extends Component {
             
          <h2>Name:</h2>
           {JSON.stringify(project)}
+          {JSON.stringify(builder)}
          </div>
         )
     }
