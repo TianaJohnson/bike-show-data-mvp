@@ -6,8 +6,8 @@ import Tab from '@material-ui/core/Tab'
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import FrameType from '../Frame/FrameType';
-// import Wheels from './../WTAfile/Wheels';
+// import FrameType from '../Frame/FrameType';
+// import Wheels from '../WTAfile/Wheels';
 
 
 function TabContainer(props) {
@@ -63,14 +63,15 @@ class CustomerToolBar extends Component {
                         {/* <Tab label="Contact Information" /> */}
                     </Tabs>
                 </AppBar>
-                {/* {value === 0 && <FrameType match={this.props.match} history={this.props.history}/>}  */}
-                {/* {value === 1 && <Wheels match={this.props.match} history={this.props.history}/>} */} 
+                {/* {value === 0 && <FrameType match={this.props.match} history={this.props.history}/>} 
+                {value === 1 && <Wheels match={this.props.match} history={this.props.history}/>}  */}
+
                 {/* {value === 2 && <BuildStatusPage match={this.props.match} history={this.props.history}/>} */}
                 {/* {value === 2 && <CustomerNotesPage match={this.props.match} history={this.props.history}/>}
                 {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
             </Paper>
             
-         <h2>Name:</h2>
+         <h2>Name:{builder.builder_name}</h2>
           {JSON.stringify(project)}
           {JSON.stringify(builder)}
          </div>

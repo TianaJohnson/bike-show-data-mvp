@@ -23,13 +23,13 @@ class Intake extends Component {
         super(props);
         this.state = {
             builder_name: '',
-            build_brand: ''
+            build_brand: '',
         }
     }
 
     // should pull priject file up
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_FILE', payload: { id: this.props.match.params.id } });    
+        this.props.dispatch({ type: 'FETCH_BUILDER', payload: { id: this.props.match.params.id } });    
     }
 
     //Send to saga to create a builder in the data base
@@ -42,9 +42,9 @@ class Intake extends Component {
         this.props.dispatch(action);
         this.setState({
             builder_name: '',
-            build_brand: ''
+            build_brand: '',
         })
-        //this.props.history.push(`/file/${this.props.builder.id}`);
+        this.props.history.push(`/home`);
     }
 
     handleChange = (evt) => {
