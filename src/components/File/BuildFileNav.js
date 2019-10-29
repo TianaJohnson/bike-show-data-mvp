@@ -30,13 +30,19 @@ class CustomerToolBar extends Component {
         }
     }
 
+    componentDidMount() {
+        
+        this.props.dispatch({ type: 'FETCH_FILE', payload: { id: this.props.match.params.id } });
+        
+    }
+
     handleChange = (event, value) => {
         this.setState({ value });
     };
 
     render() {
         const { value } = this.state;
-        const project = this.props.reduxStore.builder.builderIntakeReducer
+        const project = this.props.reduxStore.file.bikeFileReducer;
 // tool bar (tabs) to navigate through customer file
         return (
             <div>
@@ -64,7 +70,7 @@ class CustomerToolBar extends Component {
             </Paper>
             
          <h2>Name:</h2>
-          {JSON.stringify(this.props.reduxStore.builder.builderIntakeReducer)}
+          {JSON.stringify(project)}
          </div>
         )
     }
