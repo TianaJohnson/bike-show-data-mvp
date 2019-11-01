@@ -47,6 +47,8 @@ class Intake extends Component {
         this.props.history.push(`/home`);
     }
 
+    //why is bike brand no longer linking up?
+
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
     }
