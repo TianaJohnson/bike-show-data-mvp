@@ -6,7 +6,8 @@ function* addFile(action) {
     try {
         yield axios.put(`/api/file/${action.payload.id}`, action.payload);
         // yield alert('Project added.');
-        // yield put({ type: 'FETCH_PROJECT', payload: action.payload});
+        //V may need to commented out again V//
+        yield put({ type: 'FETCH_PROJECT', payload: action.payload});
     }catch (error) {
         console.log('Error in add bike file saga:', error);
     }

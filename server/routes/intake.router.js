@@ -16,8 +16,8 @@ router.post('/', (req, res, next) => {
         .then((results) => {
     // Insert empty file for builder
      const anotherQuery = `INSERT INTO "build_file"
-          ("user_id",
-          "builder_id") 
+          ("builder_id",
+          "user_id") 
            VALUES ($1, $2);`;
      pool.query(anotherQuery, [results.rows[0].id,
      req.user.id]).then(() => {

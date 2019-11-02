@@ -31,9 +31,9 @@ class CustomerToolBar extends Component {
     }
 
     componentDidMount() {
-        
+        this.props.dispatch({ type: 'FETCH_BUILDER', payload: { id: this.props.match.params.id } }); 
         this.props.dispatch({ type: 'FETCH_FILE', payload: { id: this.props.match.params.id } });
-        this.props.dispatch({ type: 'FETCH_BUILDER', payload: { id: this.props.match.params.id } });
+        // this.props.dispatch({ type: 'FETCH_BUILDER', payload: { id: this.props.match.params.id } });
     }
 
     handleChange = (event, value) => {
@@ -71,7 +71,7 @@ class CustomerToolBar extends Component {
                 {value === 4 && <CustomerContactInfo match={this.props.match} history={this.props.history}/>} */}
             </Paper>
             
-         <h2>Name:{builder.builder_name}</h2>
+         <h2>Name:{project.builder_id}</h2>
           {JSON.stringify(project)}
           {JSON.stringify(builder)}
          </div>
