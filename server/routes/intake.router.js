@@ -12,7 +12,7 @@ router.post('/', (req, res, next) => {
                       "build_brand")
                       VALUES ($1, $2) RETURNING "id";`;
         pool.query(queryText, [req.body.builder_name,
-        req.body.brand])
+        req.body.build_brand])
         .then((results) => {
     // Insert empty file for builder
      const anotherQuery = `INSERT INTO "build_file"
