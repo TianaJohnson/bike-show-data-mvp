@@ -50,7 +50,7 @@ class Intake extends Component {
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
     }
-
+// still trying to pull out bike builder info ??
 
     render() {
         // const builder = this.props.reduxStore.builder.builderIntakeReducer;
