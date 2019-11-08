@@ -52,6 +52,8 @@ class Intake extends Component {
     }
 //so the database is working, I must not be calling it correctly
 
+//brain is not there
+
     render() {
         // const builder = this.props.reduxStore.builder.builderIntakeReducer;
         return (
