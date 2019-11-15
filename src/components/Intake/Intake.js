@@ -50,9 +50,8 @@ class Intake extends Component {
     handleChange = (evt) => {
         this.setState({ [evt.target.name]: evt.target.value });
     }
-//so the database is working, I must not be calling it correctly
 
-//brain is not there
+    //still thinking about just rebuilding the cantina groove
 
     render() {
         // const builder = this.props.reduxStore.builder.builderIntakeReducer;
