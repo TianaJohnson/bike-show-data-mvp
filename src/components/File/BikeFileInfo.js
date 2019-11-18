@@ -13,4 +13,4 @@ const mapStateToProps = reduxStore => {
     return { reduxStore: reduxStore };
 }
 
-export default connect(mapStateToProps)(Bike File);
+export default connect(mapStateToProps)(BikeFile);
