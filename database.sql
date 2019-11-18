@@ -249,30 +249,30 @@ CREATE TABLE "group_set_file"(
     "dt_id" INT REFERENCES "drive_train"("id")
 );
 
--- main file to refrence all other
--- CREATE TABLE "build_file" (
---     "id" SERIAL PRIMARY KEY,
---     "user_id" INT REFERENCES "user"("id"),
---     "builder_id" INT REFERENCES "builder"("id"),
---     "frame_info_id" INT REFERENCES "frame_info_file"("id"),
---     "wta_file_id" INT REFERENCES "wheels_tires_axles_file"("id"),
---     "gs_id" INT REFERENCES "group_set_file"("id"),
---     "bike_img" TEXT
--- );
-
-
-CREATE TABLE "bike_build_file" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INT REFERENCES "user"("id"),
+--  main file to refrence all other
+CREATE TABLE "build_file" (
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
-    "bicycle_type" VARCHAR (200),
-    "primary_frame_type" VARCHAR (200),
-    "secondary_frame_type" VARCHAR (200),
-    "primary_frame_joining" VARCHAR (200),
-    "secondary_frame_joining" VARCHAR (200),
-    "fork_material" VARCHAR (200),
-    "steel_fork_build" VARCHAR (200),
+    "frame_info_id" INT REFERENCES "frame_info_file"("id"),
+    "wta_file_id" INT REFERENCES "wheels_tires_axles_file"("id"),
+    "gs_id" INT REFERENCES "group_set_file"("id"),
+    "bike_img" TEXT
+);
+
+
+-- CREATE TABLE "bike_build_file" (
+--     "id" SERIAL PRIMARY KEY,
+--     "user_id" INT REFERENCES "user"("id"),
+--     "builder_id" INT REFERENCES "builder"("id"),
+--     "bicycle_type" VARCHAR (200),
+--     "primary_frame_type" VARCHAR (200),
+--     "secondary_frame_type" VARCHAR (200),
+--     "primary_frame_joining" VARCHAR (200),
+--     "secondary_frame_joining" VARCHAR (200),
+--     "fork_material" VARCHAR (200),
+--     "steel_fork_build" VARCHAR (200),
 
 
 
-)
+-- )
