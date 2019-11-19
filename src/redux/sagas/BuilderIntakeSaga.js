@@ -21,7 +21,6 @@ function* addBuilder(action) {
     console.log('response from server is:',responseFromServer.data)
   } catch (error) {
     console.log('Unabale to fetch builder from server', error);
-    alert('Unabale to fetch builder from server', error);
   }
 }
 
@@ -31,4 +30,3 @@ function* builderIntakeSaga() {
 }
 
   export default builderIntakeSaga;
-  // /Users/tianajohnson/Project/bike-show-data-mvp/src/redux/sagas/builderIntakeSaga.js
