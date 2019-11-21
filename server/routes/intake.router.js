@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
         req.body.build_brand])
         .then((results) => {
     // Insert empty file for builder
-     const anotherQuery = `INSERT INTO "build_file"
+     const anotherQuery = `INSERT INTO "bike_file"
           ("user_id",
           "builder_id") 
            VALUES ($1, $2);`;
