@@ -13,84 +13,6 @@ CREATE TABLE "builder" (
     "build_brand" VARCHAR (100)
 );
 
--- Bike type per builder
-CREATE TABLE "bike_type" (
-    "id" SERIAL PRIMARY KEY,
-    "road" BOOLEAN,
-    "cyclocross" BOOLEAN,
-    "gravel" BOOLEAN,
-    "moutain" BOOLEAN,
-    "city" BOOLEAN,
-    "track" BOOLEAN,
-    "tandem" BOOLEAN,
-    "experimental" BOOLEAN,
-    "touring" BOOLEAN,
-    "other_bike_type" VARCHAR (100),
-    "notes_bike_type" VARCHAR (200)
-);
-
-
--- primary frame material, removed its link to secondary table
-CREATE TABLE "primary_frame_material" (
-    "id" SERIAL PRIMARY KEY,
-    "steel" BOOLEAN,
-    "stainless" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "titanium" BOOLEAN,
-    "magnesium" BOOLEAN,
-    "wood" BOOLEAN,
-    "bamboo" BOOLEAN,
-    "other_pfm" VARCHAR (50),
-    "notes_pfm" VARCHAR (200),
-	"pfm_bike_id" INT REFERENCES ("id")
-);
-
--- secondary frame material, refrenced by primary frame material
-CREATE TABLE "secondary_frame_material" (
-    "id" SERIAL PRIMARY KEY,
-    "is_present" BOOLEAN,
-    "steel_sfm" BOOLEAN,
-    "stainless_sfm" BOOLEAN,
-    "carbon_sfm" BOOLEAN,
-    "aluminum_sfm" BOOLEAN,
-    "titanium_sfm" BOOLEAN,
-    "magnesium_sfm" BOOLEAN,
-    "wood_sfm" BOOLEAN,
-    "bamboo_sfm" BOOLEAN,
-    "other_sfm" VARCHAR (50),
-    "notes_sfm" VARCHAR (200)
-);
-
--- Primary means of frame joining
-CREATE TABLE "primary_frame_joining" (
-    "id" SERIAL PRIMARY KEY,
-    "welding" BOOLEAN,
-    "brass_fillet" BOOLEAN,
-    "lugged" BOOLEAN,
-    "layed_up" BOOLEAN,
-    "bonded" BOOLEAN,
-    "silver_fillet" BOOLEAN,
-    "mechanical" BOOLEAN,
-    "other_pfj" VARCHAR (100),
-    "notes_pfj" VARCHAR (200)
-);
-
--- Secondary frame joining material, if present. Refrenced by Primary frame joining table
-CREATE TABLE "secondary_frame_joining" (
-    "id" SERIAL PRIMARY KEY,
-    "is_present" BOOLEAN,
-    "welding" BOOLEAN,
-    "brass_fillet" BOOLEAN,
-    "lugged" BOOLEAN,
-    "layed_up" BOOLEAN,
-    "bonded" BOOLEAN,
-    "silver_fillet" BOOLEAN,
-    "mechanical" BOOLEAN,
-    "other_sfj" VARCHAR (100),
-    "notes_sfj" VARCHAR (200)
-);
-
 -- Main fork material
 CREATE TABLE "fork_material" (
     "id" SERIAL PRIMARY KEY,
@@ -239,19 +161,16 @@ CREATE TABLE "group_set_file"(
     "dt_id" INT REFERENCES "drive_train"("id")
 );
 
--- main file to refrence all other
-CREATE TABLE "bike_file" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INT REFERENCES "user"("id"),
-    "builder_id" INT REFERENCES "builder"("id"),
-    "frame_info_id" INT REFERENCES "frame_info_file"("id"),
-    "wta_file_id" INT REFERENCES "wheels_tires_axles_file"("id"),
-    "gs_id" INT REFERENCES "group_set_file"("id"),
-    "bike_img" TEXT
-);
+
 
 CREATE TABLE "builder_file" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user"("id"),
-    "builder_id" INT REFERENCES "builder"("id")
+    "builder_id" INT REFERENCES "builder"("id"),
+    "bike_type" VARCHAR (200),
+    "p_material_used" VARCHAR (200),
+    "s_material_used" VARCHAR (200),
+    "p_frame_joining" VARCHAR (200),
+    "s_frame_joining" VARCHAR (200),
+
 	);
