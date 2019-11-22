@@ -20,6 +20,25 @@ CREATE TABLE "show_info" (
 );
 
 
+
+
+-- fork info table
+CREATE TABLE "fork_build" (
+    "id" SERIAL PRIMARY KEY,
+    "fork_build" VARCHAR (200),
+    "steel_build" INT REFERENCES "steel_fork_build"("id"),
+    "notes_fm" VARCHAR
+);
+CREATE TABLE "steel_fork_build" (
+    "id" SERIAL PRIMARY KEY,
+    "put_together_how" VARCHAR (200),
+    "notes_sfb" VARCHAR
+);
+
+
+
+
+
 -- Bike location placement refrence table
 CREATE TABLE "placement"(
     "id" SERIAL PRIMARY KEY,
@@ -29,13 +48,7 @@ CREATE TABLE "placement"(
 );
 CREATE TABLE "wheel_size" (
     "id" SERIAL PRIMARY KEY,
-    "36" BOOLEAN,
-    "700c/29" BOOLEAN,
-    "650b/27.5" BOOLEAN,
-    "26" BOOLEAN,
-    "24" BOOLEAN,
-    "20" BOOLEAN,
-    "other_ws" VARCHAR (20),
+    "tires_size" VARCHAR (50),
     "notes_ws" VARCHAR (100),
     "location_w_id" INT REFERENCES "placement"("id")
 );
@@ -61,9 +74,19 @@ CREATE TABLE "wheels_tires_axles_file"(
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
-CREATE TABLE "drive_train_info"(
+
+
+
+CREATE TABLE "group_set_info"(
     "id" SERIAL PRIMARY KEY,
+    "brake_id" INT REFERENCES "brake_type"("id"),
+    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
+    "dt_id" INT REFERENCES "drive_train"("id")
 )
+
+
+
+
 
 --brand type, to be refrenced
 CREATE TABLE "component_brand" (
@@ -92,22 +115,14 @@ CREATE TABLE "component_brand" (
     "other" VARCHAR (400)
 );
 
+
+
 CREATE TABLE "brake_info" (
     "id" SERIAL PRIMARY KEY,
     "brake_type" VARCHAR (300),
-    "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
+    "characteristics" VARCHAR (300),
     "bt_brand_id" INT REFERENCES "component_brand" ("id"),
-    "location" INT REFERENCES "placement"("id"),
-    "bike_id" INT REFERENCES 
-)
-
--- brake charictoristics refrenced by brake type
-CREATE TABLE "brake_characteristic"(
-    "id" SERIAL PRIMARY KEY,
-    "mechanical" BOOLEAN,
-    "hydralic" BOOLEAN,
-    "none_bc" BOOLEAN,
-    "notes_bc" VARCHAR (100)
+    "location" INT REFERENCES "placement"("id")
 );
 
 
@@ -121,10 +136,8 @@ CREATE TABLE "bike_file" (
     "s_material_used" VARCHAR (200),
     "p_frame_joining" VARCHAR (200),
     "s_frame_joining" VARCHAR (200),  
-    "fork_build" VARCHAR (200),
-    "steel_fork_build" VARCHAR (200),
+    "fork" INT REFERENCES "fork_build"("id"),
     "wheels_tires" INT REFERENCES "wheels_tires_axles_file"("id"),
-
 	);
 
 
