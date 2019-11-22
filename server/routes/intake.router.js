@@ -10,10 +10,11 @@ router.post('/', (req, res, next) => {
         const queryText = `INSERT INTO "show_info"
                      ("show_name",
                       "show_location,
+                      "show_date"
                       "builder_name", 
                       "build_brand",
                       "builder_location")
-                      VALUES ($1, $2) RETURNING "id";`;
+                      VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id";`;
         pool.query(queryText, [req.body.builder_name,
         req.body.build_brand])
         .then((results) => {

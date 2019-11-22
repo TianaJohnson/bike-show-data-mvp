@@ -27,9 +27,6 @@ CREATE TABLE "placement"(
     "rear" BOOLEAN,
     "both" BOOLEAN
 );
-
-
--- Wheel size
 CREATE TABLE "wheel_size" (
     "id" SERIAL PRIMARY KEY,
     "36" BOOLEAN,
@@ -42,7 +39,6 @@ CREATE TABLE "wheel_size" (
     "notes_ws" VARCHAR (100),
     "location_w_id" INT REFERENCES "placement"("id")
 );
--- tire size refrences location
 CREATE TABLE "tire_size" (
     "id" SERIAL PRIMARY KEY,
     "diam" INTEGER, 
@@ -51,27 +47,50 @@ CREATE TABLE "tire_size" (
     "notes" VARCHAR (100),
     "location_ts_id" INT REFERENCES "placement"("id")
 );
-
--- axle type, refrences location
 CREATE TABLE "axle_type" (
     "id" SERIAL PRIMARY KEY,
-    "qr" BOOLEAN,
-    "ta" BOOLEAN,
-    "track" BOOLEAN,
-    "other" VARCHAR (100),
-    "notes" VARCHAR (100),
+    "axle" VARCHAR (100),
     "location_at_id" INT REFERENCES "placement"("id")
 );
 
 -- wheel/tires/axles file
 CREATE TABLE "wheels_tires_axles_file"(
     "id" SERIAL PRIMARY KEY,
-    "wheel_size_id" INT REFERENCES "wheel_size"("id"),
-    "tire_size_id" INT REFERENCES "tire_size"("id"),
+    "wheel_id" INT REFERENCES "wheel_size"("id"),
+    "tire_id" INT REFERENCES "tire_size"("id"),
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
+CREATE TABLE "drive_train_info"(
+    "id" SERIAL PRIMARY KEY,
+)
 
+--brand type, to be refrenced
+CREATE TABLE "component_brand" (
+    "id" SERIAL PRIMARY KEY,
+    "paul" BOOLEAN,
+    "sram" BOOLEAN,
+    "shimano" BOOLEAN,
+    "campy" BOOLEAN,
+    "hayes" BOOLEAN,
+    "hope" BOOLEAN,
+    "trp" BOOLEAN,
+    "promax" BOOLEAN,
+    "cane_creek" BOOLEAN,
+    "brooks" BOOLEAN,
+    "ritchey" BOOLEAN,
+    "thompson" BOOLEAN,
+    "raceface" BOOLEAN,
+    "velo_orange" BOOLEAN,
+    "sr_suntour" BOOLEAN,
+    "dt_swiss" BOOLEAN,
+    "white_industries" BOOLEAN,
+    "velocity" BOOLEAN,
+    "phil_wood" BOOLEAN,
+    "i9" BOOLEAN,
+    "fsa" BOOLEAN,
+    "other" VARCHAR (400)
+);
 
 CREATE TABLE "brake_info" (
     "id" SERIAL PRIMARY KEY,
