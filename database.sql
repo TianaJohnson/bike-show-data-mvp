@@ -54,9 +54,7 @@ CREATE TABLE "wheel_size" (
 );
 CREATE TABLE "tire_size" (
     "id" SERIAL PRIMARY KEY,
-    "diam" INTEGER, 
-    "width" INTEGER,
-    "other" VARCHAR (25),
+    "size" VARCHAR (50),
     "notes" VARCHAR (100),
     "location_ts_id" INT REFERENCES "placement"("id")
 );
@@ -74,15 +72,6 @@ CREATE TABLE "wheels_tires_axles_file"(
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
-
-
-
-CREATE TABLE "group_set_info"(
-    "id" SERIAL PRIMARY KEY,
-    "brake_id" INT REFERENCES "brake_type"("id"),
-    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
-    "dt_id" INT REFERENCES "drive_train"("id")
-)
 
 
 
@@ -117,13 +106,33 @@ CREATE TABLE "component_brand" (
 
 
 
-CREATE TABLE "brake_info" (
-    "id" SERIAL PRIMARY KEY,
-    "brake_type" VARCHAR (300),
-    "characteristics" VARCHAR (300),
-    "bt_brand_id" INT REFERENCES "component_brand" ("id"),
-    "location" INT REFERENCES "placement"("id")
+-- brake type, refrences charectoristics and brand
+CREATE TABLE "brake_type" (
+    "id" SERIAL PRIMARY KEY,
+    "brake" VARCHAR (200),
+    "bt_brand_id" INT REFERENCES "component_brand" ("id"),
+    "notes_bt" VARCHAR (100),
+    "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
+    "location_bt_id" INT REFERENCES "placement"("id")
 );
+-- brake charictoristics refrenced by brake type
+CREATE TABLE "brake_characteristic"(
+    "id" SERIAL PRIMARY KEY,
+    "char" VARCHAR (100),
+    "notes_bc" VARCHAR (100)
+);
+
+-- -- drive train table, refrences brand
+-- CREATE TABLE "drive_train" (
+--     "id" SERIAL PRIMARY KEY,
+--     "mechanical" BOOLEAN,
+--     "wire" BOOLEAN,
+--     "wireless" BOOLEAN,
+--     "Hydraulic" BOOLEAN,
+--     "single_speed" BOOLEAN,
+--     "notes_dt" VARCHAR (100),
+--     "dt_brand_id" INT REFERENCES "component_brand" ("id")
+-- );
 
 
 
@@ -137,6 +146,7 @@ CREATE TABLE "bike_file" (
     "p_frame_joining" VARCHAR (200),
     "s_frame_joining" VARCHAR (200),  
     "fork" INT REFERENCES "fork_build"("id"),
+    "brake_id" INT REFERENCES "brake_type"("id"),
     "wheels_tires" INT REFERENCES "wheels_tires_axles_file"("id"),
 	);
 
