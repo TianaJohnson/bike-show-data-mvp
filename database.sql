@@ -88,6 +88,11 @@ CREATE TABLE "wheels_tires_axles_file"(
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
+CREATE TABLE "brake_info" (
+    "id" SERIAL PRIMARY KEY,
+    "location" INT REFERENCES "placement"("id"),
+    "type" INT REFERENCES "brake_type"("id"),
+)
 
 -- brake type, refrences charectoristics and brand
 CREATE TABLE "brake_type" (
@@ -100,8 +105,6 @@ CREATE TABLE "brake_type" (
     "coaster" BOOLEAN,
     "none_bt" BOOLEAN,
     "bt_brand_id" INT REFERENCES "component_brand" ("id"),
-    "other" VARCHAR (100),
-    "notes_bt" VARCHAR (100),
     "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
     "location_bt_id" INT REFERENCES "placement"("id")
 );
@@ -115,28 +118,6 @@ CREATE TABLE "brake_characteristic"(
     "notes_bc" VARCHAR (100)
 );
 
--- drive train table, refrences brand
-CREATE TABLE "drive_train" (
-    "id" SERIAL PRIMARY KEY,
-    "mechanical" BOOLEAN,
-    "wire" BOOLEAN,
-    "wireless" BOOLEAN,
-    "Hydraulic" BOOLEAN,
-    "single_speed" BOOLEAN,
-    "notes_dt" VARCHAR (100),
-    "dt_brand_id" INT REFERENCES "component_brand" ("id")
-);
-
--- brakes and dt file
-CREATE TABLE "group_set_file"(
-    "id" SERIAL PRIMARY KEY,
-    "brake_id" INT REFERENCES "brake_type"("id"),
-    "brake_char_id" INT REFERENCES "brake_characteristic"("id"),
-    "dt_id" INT REFERENCES "drive_train"("id")
-);
-
-
-
 CREATE TABLE "builder_file" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user"("id"),
@@ -146,6 +127,5 @@ CREATE TABLE "builder_file" (
     "s_material_used" VARCHAR (200),
     "p_frame_joining" VARCHAR (200),
     "s_frame_joining" VARCHAR (200),
-    "p_componenet_brant" VARCHAR (300),
-
+    "drive_train_char" VARCHAR (300),   
 	);
