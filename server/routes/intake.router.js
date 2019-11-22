@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
     console.log('in GET ')
     if (req.isAuthenticated()) {
         console.log('req.user:', req.user);
-        pool.query(`SELECT * FROM "builder" 
+        pool.query(`SELECT * FROM "show_info" 
                     ORDER BY "id" DESC;`)
             .then(results => {
                 console.log(results.rows)
