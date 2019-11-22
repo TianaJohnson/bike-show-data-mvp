@@ -7,35 +7,15 @@ CREATE TABLE "user" (
 );
 
 -- builder identification table
-CREATE TABLE "builder" (
+CREATE TABLE "builder_info" (
     "id" SERIAL PRIMARY KEY,
     "builder_name" VARCHAR (100),
-    "build_brand" VARCHAR (100)
+    "build_brand" VARCHAR (100),
+    "builder_location" VARCHAR (100),
+    "show_name" VARCHAR (200),
+    "show_location" VARCHAR (200)
 );
 
--- Main fork material
-CREATE TABLE "fork_material" (
-    "id" SERIAL PRIMARY KEY,
-    "suspention" BOOLEAN,
-    "carbon" BOOLEAN,
-    "aluminum" BOOLEAN,
-    "stainless" BOOLEAN,
-    "steel" BOOLEAN,
-    "steel_build" INT REFERENCES "steel_fork_build"("id"),
-    "other_fm" VARCHAR (100),
-    "notes_fm" VARCHAR
-);
-
--- steel fork build style, refrenced by fork material table
-CREATE TABLE "steel_fork_build" (
-    "id" SERIAL PRIMARY KEY,
-    "unicrown" BOOLEAN,
-    "segmented" BOOLEAN,
-    "lugged" BOOLEAN,
-    "bilam" BOOLEAN,
-    "other_sfb" VARCHAR (100),
-    "notes_sfb" VARCHAR
-);
 
 -- Bike location placement refrence table
 CREATE TABLE "placement"(
@@ -44,6 +24,7 @@ CREATE TABLE "placement"(
     "rear" BOOLEAN,
     "both" BOOLEAN
 );
+
 
 -- Wheel size
 CREATE TABLE "wheel_size" (
@@ -58,7 +39,6 @@ CREATE TABLE "wheel_size" (
     "notes_ws" VARCHAR (100),
     "location_w_id" INT REFERENCES "placement"("id")
 );
-
 -- tire size refrences location
 CREATE TABLE "tire_size" (
     "id" SERIAL PRIMARY KEY,
@@ -88,26 +68,16 @@ CREATE TABLE "wheels_tires_axles_file"(
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
+
+
 CREATE TABLE "brake_info" (
     "id" SERIAL PRIMARY KEY,
+    "brake_type" VARCHAR (300),
+    "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
+    "bt_brand_id" INT REFERENCES "component_brand" ("id"),
     "location" INT REFERENCES "placement"("id"),
-    "type" INT REFERENCES "brake_type"("id"),
+    "bike_id" INT REFERENCES 
 )
-
--- brake type, refrences charectoristics and brand
-CREATE TABLE "brake_type" (
-    "id" SERIAL PRIMARY KEY,
-    "flat_mount_disc" BOOLEAN,
-    "post_mount_disc" BOOLEAN,
-    "is_disc" BOOLEAN,
-    "canti" BOOLEAN,
-    "center_hole" BOOLEAN,
-    "coaster" BOOLEAN,
-    "none_bt" BOOLEAN,
-    "bt_brand_id" INT REFERENCES "component_brand" ("id"),
-    "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
-    "location_bt_id" INT REFERENCES "placement"("id")
-);
 
 -- brake charictoristics refrenced by brake type
 CREATE TABLE "brake_characteristic"(
@@ -118,7 +88,9 @@ CREATE TABLE "brake_characteristic"(
     "notes_bc" VARCHAR (100)
 );
 
-CREATE TABLE "builder_file" (
+
+
+CREATE TABLE "bike_file" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
@@ -126,6 +98,11 @@ CREATE TABLE "builder_file" (
     "p_material_used" VARCHAR (200),
     "s_material_used" VARCHAR (200),
     "p_frame_joining" VARCHAR (200),
-    "s_frame_joining" VARCHAR (200),
-    "drive_train_char" VARCHAR (300),   
+    "s_frame_joining" VARCHAR (200),  
+    "fork_build" VARCHAR (200),
+    "steel_fork_build" VARCHAR (200),
+    "wheels_tires" INT REFERENCES "wheels_tires_axles_file"("id"),
+
+
+
 	);
