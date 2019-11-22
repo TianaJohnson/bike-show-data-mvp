@@ -88,32 +88,6 @@ CREATE TABLE "wheels_tires_axles_file"(
     "axle_id" INT REFERENCES "axle_type"("id")
 );
 
---brand type, to be refrenced
-CREATE TABLE "component_brand" (
-    "id" SERIAL PRIMARY KEY,
-    "paul" BOOLEAN,
-    "sram" BOOLEAN,
-    "shimano" BOOLEAN,
-    "campy" BOOLEAN,
-    "hayes" BOOLEAN,
-    "hope" BOOLEAN,
-    "trp" BOOLEAN,
-    "promax" BOOLEAN,
-    "cane_creek" BOOLEAN,
-    "brooks" BOOLEAN,
-    "ritchey" BOOLEAN,
-    "thompson" BOOLEAN,
-    "raceface" BOOLEAN,
-    "velo_orange" BOOLEAN,
-    "sr_suntour" BOOLEAN,
-    "dt_swiss" BOOLEAN,
-    "white_industries" BOOLEAN,
-    "velocity" BOOLEAN,
-    "phil_wood" BOOLEAN,
-    "i9" BOOLEAN,
-    "fsa" BOOLEAN,
-    "other" VARCHAR (400)
-);
 
 -- brake type, refrences charectoristics and brand
 CREATE TABLE "brake_type" (
@@ -172,5 +146,6 @@ CREATE TABLE "builder_file" (
     "s_material_used" VARCHAR (200),
     "p_frame_joining" VARCHAR (200),
     "s_frame_joining" VARCHAR (200),
+    "p_componenet_brant" VARCHAR (300),
 
 	);
