@@ -122,17 +122,15 @@ CREATE TABLE "brake_characteristic"(
     "notes_bc" VARCHAR (100)
 );
 
--- -- drive train table, refrences brand
--- CREATE TABLE "drive_train" (
---     "id" SERIAL PRIMARY KEY,
---     "mechanical" BOOLEAN,
---     "wire" BOOLEAN,
---     "wireless" BOOLEAN,
---     "Hydraulic" BOOLEAN,
---     "single_speed" BOOLEAN,
---     "notes_dt" VARCHAR (100),
---     "dt_brand_id" INT REFERENCES "component_brand" ("id")
--- );
+
+
+-- drive train table, refrences brand
+CREATE TABLE "drive_train" (
+    "id" SERIAL PRIMARY KEY,
+    "dt" VARCHAR (200),
+    "notes_dt" VARCHAR (100),
+    "dt_brand_id" INT REFERENCES "component_brand" ("id")
+);
 
 
 
@@ -140,15 +138,19 @@ CREATE TABLE "bike_file" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user"("id"),
     "builder_id" INT REFERENCES "builder"("id"),
-    "bike_type" VARCHAR (200),
-    "p_material_used" VARCHAR (200),
-    "s_material_used" VARCHAR (200),
-    "p_frame_joining" VARCHAR (200),
-    "s_frame_joining" VARCHAR (200),  
-    "fork" INT REFERENCES "fork_build"("id"),
+    "bike_type_id" VARCHAR (200),
+    "p_material_used_id" VARCHAR (200),
+    "s_material_used_id" VARCHAR (200),
+    "p_frame_joining_id" VARCHAR (200),
+    "s_frame_joining_id" VARCHAR (200),  
+    "fork_id" INT REFERENCES "fork_build"("id"),
     "brake_id" INT REFERENCES "brake_type"("id"),
-    "wheels_tires" INT REFERENCES "wheels_tires_axles_file"("id"),
+    "dt_id" INT REFERENCES "drive_train"("id"),
+    "wta_id" INT REFERENCES "wheels_tires_axles_file"("id"),
 	);
+
+
+
 
 
 
