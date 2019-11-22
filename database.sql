@@ -1,34 +1,33 @@
 
--- login table
+-- login table INPUT#1
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
 
--- builder identification table
+-- builder identification table INPUT#2
 CREATE TABLE "show_info" (
     "id" SERIAL PRIMARY KEY,
     "show_name" VARCHAR (200),
     "show_location" VARCHAR (200),
-    "show_date" DATE NOT NULL DEFAULT 'CURRENT_DATE',
+    "show_date" DATE NOT NULL,
     "builder_name" VARCHAR (100),
     "build_brand" VARCHAR (100),
-    "builder_location" VARCHAR (100),
-    "show_name" VARCHAR (200),
-    "show_location" VARCHAR (200)
+    "builder_location" VARCHAR (100)
 );
 
 
 
 
--- fork info table
+-- fork info table INPUT#4
 CREATE TABLE "fork_build" (
     "id" SERIAL PRIMARY KEY,
     "fork_build" VARCHAR (200),
     "steel_build" INT REFERENCES "steel_fork_build"("id"),
     "notes_fm" VARCHAR
 );
+-- INPUT#3
 CREATE TABLE "steel_fork_build" (
     "id" SERIAL PRIMARY KEY,
     "put_together_how" VARCHAR (200),
@@ -39,32 +38,35 @@ CREATE TABLE "steel_fork_build" (
 
 
 
--- Bike location placement refrence table
+-- Bike location placement refrence table INPUT#5
 CREATE TABLE "placement"(
     "id" SERIAL PRIMARY KEY,
     "front" BOOLEAN,
     "rear" BOOLEAN,
     "both" BOOLEAN
 );
+-- INPUT#6
 CREATE TABLE "wheel_size" (
     "id" SERIAL PRIMARY KEY,
     "tires_size" VARCHAR (50),
     "notes_ws" VARCHAR (100),
     "location_w_id" INT REFERENCES "placement"("id")
 );
+-- INPUT#7
 CREATE TABLE "tire_size" (
     "id" SERIAL PRIMARY KEY,
     "size" VARCHAR (50),
     "notes" VARCHAR (100),
     "location_ts_id" INT REFERENCES "placement"("id")
 );
+-- INPUT#8
 CREATE TABLE "axle_type" (
     "id" SERIAL PRIMARY KEY,
     "axle" VARCHAR (100),
     "location_at_id" INT REFERENCES "placement"("id")
 );
 
--- wheel/tires/axles file
+-- wheel/tires/axles file INPUT#9
 CREATE TABLE "wheels_tires_axles_file"(
     "id" SERIAL PRIMARY KEY,
     "wheel_id" INT REFERENCES "wheel_size"("id"),
@@ -77,7 +79,7 @@ CREATE TABLE "wheels_tires_axles_file"(
 
 
 
---brand type, to be refrenced
+--brand type, to be refrenced INPUT#10
 CREATE TABLE "component_brand" (
     "id" SERIAL PRIMARY KEY,
     "paul" BOOLEAN,
@@ -106,7 +108,7 @@ CREATE TABLE "component_brand" (
 
 
 
--- brake type, refrences charectoristics and brand
+-- brake type, refrences charectoristics and brand INPUT#12
 CREATE TABLE "brake_type" (
     "id" SERIAL PRIMARY KEY,
     "brake" VARCHAR (200),
@@ -115,7 +117,7 @@ CREATE TABLE "brake_type" (
     "characteristic_id" INT REFERENCES "brake_characteristic" ("id"),
     "location_bt_id" INT REFERENCES "placement"("id")
 );
--- brake charictoristics refrenced by brake type
+-- brake charictoristics refrenced by brake type INPUT#11
 CREATE TABLE "brake_characteristic"(
     "id" SERIAL PRIMARY KEY,
     "char" VARCHAR (100),
@@ -124,20 +126,20 @@ CREATE TABLE "brake_characteristic"(
 
 
 
--- drive train table, refrences brand
+-- drive train table, refrences brand INPUT#13
 CREATE TABLE "drive_train" (
     "id" SERIAL PRIMARY KEY,
-    "dt" VARCHAR (200),
+    "dt_char" VARCHAR (200),
     "notes_dt" VARCHAR (100),
     "dt_brand_id" INT REFERENCES "component_brand" ("id")
 );
 
 
-
+-- INPUT#14
 CREATE TABLE "bike_file" (
-	"id" SERIAL PRIMARY KEY,
-	"user_id" INT REFERENCES "user"("id"),
-    "builder_id" INT REFERENCES "builder"("id"),
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user"("id"),
+    "builder_id" INT REFERENCES "show_info"("id"),
     "bike_type_id" VARCHAR (200),
     "p_material_used_id" VARCHAR (200),
     "s_material_used_id" VARCHAR (200),
@@ -146,8 +148,9 @@ CREATE TABLE "bike_file" (
     "fork_id" INT REFERENCES "fork_build"("id"),
     "brake_id" INT REFERENCES "brake_type"("id"),
     "dt_id" INT REFERENCES "drive_train"("id"),
-    "wta_id" INT REFERENCES "wheels_tires_axles_file"("id"),
-	);
+    "wta_id" INT REFERENCES "wheels_tires_axles_file"("id")
+    );
+
 
 
 
