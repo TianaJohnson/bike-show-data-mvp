@@ -7,8 +7,11 @@ CREATE TABLE "user" (
 );
 
 -- builder identification table
-CREATE TABLE "builder_info" (
+CREATE TABLE "show_info" (
     "id" SERIAL PRIMARY KEY,
+    "show_name" VARCHAR (200),
+    "show_location" VARCHAR (200),
+    "show_date" DATE NOT NULL DEFAULT 'CURRENT_DATE',
     "builder_name" VARCHAR (100),
     "build_brand" VARCHAR (100),
     "builder_location" VARCHAR (100),

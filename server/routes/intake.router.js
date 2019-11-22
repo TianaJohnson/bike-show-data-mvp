@@ -7,9 +7,12 @@ router.post('/', (req, res, next) => {
     console.log(req.body);
     console.log("befor Input...")
     if (req.isAuthenticated()) {
-        const queryText = `INSERT INTO "builder"
-                     ("builder_name", 
-                      "build_brand")
+        const queryText = `INSERT INTO "show_info"
+                     ("show_name",
+                      "show_location,
+                      "builder_name", 
+                      "build_brand",
+                      "builder_location")
                       VALUES ($1, $2) RETURNING "id";`;
         pool.query(queryText, [req.body.builder_name,
         req.body.build_brand])
