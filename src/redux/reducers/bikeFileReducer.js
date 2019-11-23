@@ -1,12 +1,7 @@
 import { combineReducers } from 'redux';
  
 const emptyFile = {
-    user_id: '',
-    builder_id: '',
-    frame_info_id: '',
-    wta_file_id: '',
-    gs_id: '',
-    bike_img: ''
+   //to be filled out with new peramiters 
 };
 
 const bikeFileReducer = (state = emptyFile, action) => {
