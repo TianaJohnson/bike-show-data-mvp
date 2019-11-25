@@ -1,7 +1,18 @@
 import { combineReducers } from 'redux';
  
 const emptyFile = {
-   //to be filled out with new peramiters 
+    user_id: '',
+    builder_id: this.props.match.params.id,
+    type_id: '',
+    p_mat: '',
+    s_mat: '',
+    p_join: '',
+    s_join: '',
+    fork_id: '',
+    brake_id: '',
+    dt_id: '',
+    wta_id: ''
+    
 };
 
 const bikeFileReducer = (state = emptyFile, action) => {
