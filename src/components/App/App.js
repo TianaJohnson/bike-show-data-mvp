@@ -14,8 +14,6 @@ import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import Intake from '../Intake/Intake';
-// import Frame from '../Frame/FrameType';
-// import FrameMaterial from '../Frame/FrameMaterial';
 import File from '../File/BikeFileInfo';
 import BuildTable from '../BuilderTable/BuilderTable';
 
