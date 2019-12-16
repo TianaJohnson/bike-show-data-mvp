@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
  
 const emptyFile = {
     user_id: '',
-    builder_id: this.props.match.params.id,
+    //builder_id: this.props.match.params.id,
     type_id: '',
     p_mat: '',
     s_mat: '',

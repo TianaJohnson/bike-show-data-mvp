@@ -18,8 +18,6 @@ CREATE TABLE "show_info" (
 );
 
 
-
-
 -- fork info table INPUT#4
 CREATE TABLE "fork_build" (
     "id" SERIAL PRIMARY KEY,
@@ -33,10 +31,6 @@ CREATE TABLE "steel_fork_build" (
     "put_together_how" VARCHAR (200),
     "notes_sfb" VARCHAR
 );
-
-
-
-
 
 -- Bike location placement refrence table INPUT#5
 CREATE TABLE "placement"(
@@ -73,11 +67,6 @@ CREATE TABLE "wheels_tires_axles_file"(
     "tire_id" INT REFERENCES "tire_size"("id"),
     "axle_id" INT REFERENCES "axle_type"("id")
 );
-
-
-
-
-
 
 --brand type, to be refrenced INPUT#10
 CREATE TABLE "component_brand" (
@@ -123,8 +112,6 @@ CREATE TABLE "brake_characteristic"(
     "char" VARCHAR (100),
     "notes_bc" VARCHAR (100)
 );
-
-
 
 -- drive train table, refrences brand INPUT#13
 CREATE TABLE "drive_train" (
